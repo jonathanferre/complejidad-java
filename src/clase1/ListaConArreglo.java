@@ -1,54 +1,60 @@
 package clase1;
 import java.util.ArrayList;
-import java.util.List;
 
-import org.omg.CORBA.SystemException;
 
 public class ListaConArreglo extends Lista {
 	
-	private ArrayList arrayList = new ArrayList();
+	private ArrayList<Object> arrayList = new ArrayList<Object>();
 	
 	@Override
 	public Object elemento (int pos){
 		if (arrayList.get(pos) == null){
-			return 
-		}
-		try {
-			return arrayList.get(pos); //acceder a la lista en la posicion
+			return null;
 			
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("Elemento no encontrado");
-		}
-		
+		}else{
+			return this.arrayList.get(pos);
+		} 
     }
-
 
 	@Override
 	public void agregar(Object elem, int pos) {
-		// TODO Auto-generated method stub
-		
+		this.arrayList.add(pos, elem);
+		this.tamanio += 1;
+		System.out.println(this.arrayList.get(pos));
 	}
 
 
 	@Override
 	public void eliminar(int pos) {
-		// TODO Auto-generated method stub
-		
+		try {
+			this.arrayList.remove(pos);
+			this.tamanio -= 1;
+		} catch (IndexOutOfBoundsException e) {
+			// TODO: handle exception
+			System.out.printf("Se ha eliminado un dato: ", this.arrayList.get(pos));
+		}
 	}
-
 
 	@Override
 	public Boolean esVacia() {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.arrayList.isEmpty() == true){
+			System.out.println("La lista está vacía");
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 
 	@Override
 	public Boolean incluye(Object elem) {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.arrayList.contains(elem) == true){
+			System.out.println("Se ha encontrado el elemento en la lista");
+			return true;
+		}else{
+			System.out.println("El elemento NO existe");
+			return false;
+		}
 	}
 
 	
