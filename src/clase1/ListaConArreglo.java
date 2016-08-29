@@ -38,7 +38,7 @@ public class ListaConArreglo extends Lista {
 	@Override
 	public Boolean esVacia() {
 		if (this.arrayList.isEmpty() == true){
-			System.out.println("La lista está vacía");
+			System.out.println("La lista estï¿½ vacï¿½a");
 			return true;
 		}else{
 			return false;
