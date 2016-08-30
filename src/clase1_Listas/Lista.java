@@ -1,4 +1,4 @@
-package clase1;
+package clase1_Listas;
 
 public abstract class Lista {
 	protected int tamanio = 0;

@@ -1,4 +1,4 @@
-package clase1;
+package clase1_Listas;
 
 public class Recorredor {
 	
@@ -10,7 +10,7 @@ public class Recorredor {
     public void comenzar()
     {
         this.actual = 0;
-        System.out.printf("La posición actual es: ", this.actual);
+        System.out.printf("La posición actual es: %d", this.actual);
     }
 
     //Error
@@ -22,7 +22,7 @@ public class Recorredor {
     public void proximo()
     {
         this.actual += 1;
-        System.out.println(this.actual);
+        System.out.printf("Se avanzó al próximo elemento %d", this.actual);
     }
 
     public Boolean fin()

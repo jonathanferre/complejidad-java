@@ -1,4 +1,4 @@
-package clase1;
+package clase1_Listas;
 
 public class Main {
 
@@ -12,10 +12,14 @@ public class Main {
 		arrayList.agregar("Elemento 1", 0);
 		arrayList.agregar(10, 1);
 		arrayList.agregar("Elemento 3", 2);
-		arrayList.getTamanio(); //no retorna
+		System.out.printf("Tamaño %d",arrayList.getTamanio());
+		arrayList.agregar("Elemento 4", 3);
+		System.out.printf("Tamaño %d",arrayList.getTamanio());
+	
 		arrayList.recorredor();
 		arrayList.recorredor().comenzar();
-		arrayList.recorredor().proximo();
+		arrayList.recorredor().elemento();
+		
 		System.out.println("Implementando Stack");
 		Pila pila = new Pila();
 		pila.poner("Elemento 1");
@@ -24,7 +28,8 @@ public class Main {
 		System.out.println("Implementando Queue");
 		Cola cola = new Cola();
 		cola.poner("Elemento Queue 1");
-		cola.esVacia(); //no retorna
+		cola.esVacia(); //no retorna 
+		
 		
 	}
 
