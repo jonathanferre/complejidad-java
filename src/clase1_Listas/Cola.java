@@ -1,27 +1,28 @@
 package clase1_Listas;
 
-import sun.misc.Queue;
-
 public class Cola {
 	
-	private Queue cola = new Queue();
+	ListaConArreglo lista;
+	
+	public Cola(ListaConArreglo lista){
+		this.lista = lista;
+	}
 	
 	public void poner(Object elem){
-		this.cola.enqueue(elem);
+		lista.agregar(elem,lista.getTamanio());
 	}
 	
-	//!!!!!!
-	public void sacar(){
-			try {
-				this.cola.dequeue();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+	public Object sacar(){
+		Object elem = lista.elemento(0);
+		lista.eliminar(0);
+		return elem;
 	}
 	
-	public boolean esVacia(){
-		return this.cola.isEmpty();
+	public Object tope(){
+		return lista.elemento(0);
 	}
 	
+	public Boolean esVacia(){
+		return lista.esVacia();
+	}
 }

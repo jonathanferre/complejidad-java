@@ -4,14 +4,19 @@ import clase1_Listas.ListaConArreglo;
 
 public class NodoGeneral {
 	
-	private Object dato;
-	private ListaConArreglo listaHijos;
+	private String dato;
+	private ListaConArreglo listaHijos = new ListaConArreglo();
 	
-	public Object getDato(){
+	public NodoGeneral(String elem) {
+		// TODO Auto-generated constructor stub
+		this.setDato(elem);
+	}
+
+	public String getDato(){
 		return this.dato;
 	}
 	
-	public void setDato(Object elem){
+	public void setDato(String elem){
 		this.dato = elem;
 	}
 	

@@ -20,15 +20,15 @@ public class Main {
 		arrayList.recorredor().comenzar();
 		arrayList.recorredor().elemento();
 		
-		System.out.println("Implementando Stack");
-		Pila pila = new Pila();
-		pila.poner("Elemento 1");
-		pila.sacar();
-		pila.esVacia();  //no retorna 
-		System.out.println("Implementando Queue");
-		Cola cola = new Cola();
-		cola.poner("Elemento Queue 1");
-		cola.esVacia(); //no retorna 
+		System.out.println("Implementando Pila");
+		//Pila pila = new Pila();
+		  //no retorna 
+		System.out.println("Implementando Cola");
+		//Cola cola = new Cola();
+	
+		
+		
+		System.out.println("Implementando Arboles");
 		
 		
 	}

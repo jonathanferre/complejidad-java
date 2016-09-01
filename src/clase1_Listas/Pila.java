@@ -1,26 +1,35 @@
 package clase1_Listas;
 
-import java.util.Stack;
-
 public class Pila {
 	
-	private Stack stack = new Stack();
-	//private ListaConArreglo datos = new ListaConArreglo();
+	private ListaConArreglo datos;
 	
-	public void poner(Object elem){
-		this.stack.push(elem);
-		System.out.println(elem);
+	public Pila (ListaConArreglo lista){
+		datos = lista;
 	}
 	
+	public void poner(Object elem){
+		if (datos.esVacia()){
+			this.datos.agregar(elem,0);
+		}
+		else{
+			this.datos.agregar(elem,this.datos.getTamanio());
+		}
+		
+	}
 	public Object sacar(){
-		return stack.pop();
+		Object elem = this.datos.elemento(this.datos.getTamanio()-1);
+		this.datos.eliminar(this.datos.getTamanio()-1);
+		return elem;
 	}
 	
 	public Object tope(){
-		return stack.peek();
+		return  this.datos.elemento(this.datos.getTamanio()-1);
 	}
 	
-	public boolean esVacia(){
-		return stack.isEmpty();
+	public Boolean esVacia(){
+		return this.datos.esVacia();
 	}
+	
+	
 }
