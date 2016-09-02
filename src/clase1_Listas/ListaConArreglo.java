@@ -18,9 +18,9 @@ public class ListaConArreglo extends Lista {
 
 	@Override
 	public void agregar(Object elem, int pos) {
-		this.arrayList.add(pos, elem);
+		this.arrayList.add(elem);
 		this.tamanio += 1;
-		System.out.println(this.arrayList.get(pos));
+		//System.out.println(this.arrayList.get(pos));
 	}
 
 

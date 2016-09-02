@@ -30,7 +30,7 @@ public class ArbolGeneral {
 	
 	public void agregarHijo(ArbolGeneral unHijo){
 		NodoGeneral raiz_hijo = unHijo.getRaiz();
-		this.raiz.getHijos().agregar(raiz_hijo, this.raiz.getHijos().getTamanio() +1);
+		this.raiz.getHijos().agregar(raiz_hijo, this.raiz.getHijos().getTamanio());
 		System.out.println("Se ha agregado un hijo al arbol general");
 	}
 	
