@@ -45,7 +45,6 @@ public class ListaConArreglo extends Lista {
 		}
 	}
 
-
 	@Override
 	public Boolean incluye(Object elem) {
 		if (this.arrayList.contains(elem) == true){
@@ -56,9 +55,7 @@ public class ListaConArreglo extends Lista {
 			return false;
 		}
 	}
-
-	
-    
+	    
 	
 	
 }
