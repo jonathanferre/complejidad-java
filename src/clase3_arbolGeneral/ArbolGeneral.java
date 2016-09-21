@@ -41,16 +41,25 @@ public class ArbolGeneral {
 	//public void eliminarHijo(ArbolGeneral unHijo){}
 	
 	
-	public int altura(){
-		Cola cola = new Cola(new ListaConArreglo());
-		cola.poner(this.raiz.getHijos());
-		while(!cola.esVacia()){
-			ListaConArreglo arbol = cola.sacar();
-			
-		}
-		
-	}
-	
+    public int altura(){
+        int value = 0;
+        Cola colaAux = new Cola(new ListaConArreglo());
+        Cola cola = new Cola(new ListaConArreglo());
+        cola.poner(this.raiz.getHijos());
+        while(!cola.esVacia()){
+            Object aux = cola.sacar();
+            NodoGeneral arbol = (NodoGeneral) cola.sacar(); //saca arboles generales
+            Recorredor rec_hijos = arbol.getHijos().recorredor();
+            rec_hijos.comenzar();
+            while (!rec_hijos.fin()) {
+                colaAux.poner(rec_hijos.elemento());
+                value += 1;
+                rec_hijos.proximo();
+            }
+        }
+        return value;
+    }
+
 	
 
 }
@@ -77,3 +86,20 @@ def preorden(self):
 		while not rec_hijos.fin():
 			rec_hijos.elemento().preorden()
 			rec_hijos.proximo()*/
+
+
+/*public void altura2()){
+	if (this.hijos == null){
+		return 0
+	}else{
+		int h2 = 0;
+		for (arbolgeneral h:this.hijos;) {
+			h1 = Altura(h);
+			if (h1 > h2){
+				h2 = h1;
+			}
+		}
+		return h2+1;
+	}
+	
+}*/

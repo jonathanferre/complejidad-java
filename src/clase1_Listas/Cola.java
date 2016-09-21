@@ -14,7 +14,7 @@ public class Cola {
 	
 	public Object sacar(){
 		Object elem = lista.elemento(0);
-		lista.eliminar(0);
+		//lista.eliminar(0);
 		return elem;
 	}
 	
