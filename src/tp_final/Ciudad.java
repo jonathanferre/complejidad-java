@@ -4,67 +4,42 @@ import java.util.ArrayList;
 
 public class Ciudad {
 	
-	private String nombreCiudad;
-	private int altura;
-	private int distancia;
-	private float velocidadMedia;
-	private ArrayList<Object> adyacentes = new ArrayList<Object>();
-		
+	private DatosCiudad datoCiudad;
+	private int posicion;
+	private ArrayList<Ruta> adyacentes = new ArrayList<Ruta>();
 	
-	public String getNombreCiudad() {
-		return nombreCiudad;
+	
+	public DatosCiudad getDatoCiudad() {
+		return datoCiudad;
 	}
-
-
-	public void setNombreCiudad(String nombreCiudad) {
-		this.nombreCiudad = nombreCiudad;
+	public void setDatoCiudad(DatosCiudad datoCiudad) {
+		this.datoCiudad = datoCiudad;
 	}
-
-
-	public int getAltura() {
-		return altura;
+	public int getPosicion() {
+		return posicion;
 	}
-
-
-	public void setAltura(int altura) {
-		this.altura = altura;
+	public void setPosicion(int posicion) {
+		this.posicion = posicion;
 	}
-
-
-	public int getDistancia() {
-		return distancia;
-	}
-
-
-	public void setDistancia(int distancia) {
-		this.distancia = distancia;
-	}
-
-
-	public float getVelocidadMedia() {
-		return velocidadMedia;
-	}
-
-	public void setVelocidadMedia(float velocidadMedia) {
-		this.velocidadMedia = velocidadMedia;
-	}
-
-	public ArrayList<Object> getAdyacentes() {
+	public ArrayList<Ruta> getAdyacentes() {
 		return adyacentes;
 	}
-
-	public void setAdyacentes(ArrayList<Object> adyacentes) {
+	public void setAdyacentes(ArrayList<Ruta> adyacentes) {
 		this.adyacentes = adyacentes;
 	}
-
-	public Ciudad(String nombreCiudad, int altura, int distancia,
-			float velocidadMedia, ArrayList<Object> adyacentes) {
-		super();
-		this.nombreCiudad = nombreCiudad;
-		this.altura = altura;
-		this.distancia = distancia;
-		this.velocidadMedia = velocidadMedia;
-		this.adyacentes = adyacentes;
+	
+	public void mostrar(){
+		if (this.getAdyacentes().isEmpty()) {
+			System.out.println(this.getDatoCiudad().getNombreCiudad() + "no tiene adyacentes");			
+		}else{
+			ArrayList<Ciudad> rutasAux = new ArrayList<Ciudad>();
+			for(Ruta a: this.getAdyacentes()){
+				System.out.println(this.getDatoCiudad().getNombreCiudad() + "<- tiene como adyacente a:" + a.getDestino().getDatoCiudad().getNombreCiudad() + " / distancia =" + a.getPesoMaximo());
+				rutasAux.add(a.getDestino());
+			}
+		}
 	}
+	
 
+	
 }
