@@ -18,17 +18,12 @@ public class Grafo {
 	}
 
 	public void agregar_ciudad(Ciudad c){
-		listaDeCiudades.agregar(c, listaDeCiudades.getTamanio());;
+		listaDeCiudades.agregar(c, listaDeCiudades.getTamanio());
 	}
 	
-	public void conectar(Ciudad destino, int pesoMaximo, float velocidadMaxCiudades, int distanciaRuta){
-		Ruta ruta = new Ruta();
-		ruta.setPesoMaximo(pesoMaximo);
-		ruta.setDistancia(distanciaRuta);
-		ruta.setVelocidadMaxCiudades(velocidadMaxCiudades);
-		ruta.setDestino(destino);
-		destino.getAdyacentes().add(ruta);
-		
+	//se elimina los datos de la ruta y se agrega ruta como parámetro (mas origen y destino)
+	public void conectar(Ciudad origen, Ciudad destino, Ruta ruta){
+		origen.getAdyacentes().add(ruta);
 	}
 	
 	//recorrer grafos

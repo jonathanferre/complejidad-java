@@ -2,6 +2,7 @@ package tp_final;
 
 public class Ruta {
 	
+	private Ciudad origen;
 	private Ciudad destino;
 	private int distanciaRuta;
 	private float velocidadMaxCiudades;
@@ -34,8 +35,18 @@ public class Ruta {
 		this.pesoMaximo = pesoMaximo;
 	}
 	
+	
+	public Ciudad getOrigen() {
+		return origen;
+	}
+	
+	public void setOrigen(Ciudad origen) {
+		this.origen = origen;
+	}
+	
 	public Ruta(){
 	}
+	
 	
 	
 }

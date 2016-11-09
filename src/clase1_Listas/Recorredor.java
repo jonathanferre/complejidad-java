@@ -10,7 +10,7 @@ public class Recorredor {
     public void comenzar()
     {
         this.actual = 0;
-        System.out.printf("La posición actual es: %d", this.actual);
+        System.out.println(this.actual);
     }
 
     //Error
@@ -22,7 +22,7 @@ public class Recorredor {
     public void proximo()
     {
         this.actual += 1;
-        System.out.printf("Se avanzó al próximo elemento %d", this.actual);
+        System.out.println(this.actual);
     }
 
     public Boolean fin()
