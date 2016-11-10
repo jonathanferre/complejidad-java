@@ -8,6 +8,7 @@ public class DatosCiudad {
 	private float velocidadMedia;
 	
 	
+
 	public String getNombreCiudad() {
 		return nombreCiudad;
 	}
@@ -31,5 +32,7 @@ public class DatosCiudad {
 	}
 	public void setVelocidadMedia(float velocidadMedia) {
 		this.velocidadMedia = velocidadMedia;
+	}
+	public DatosCiudad(String nombreCiudad2, int altura2, int distancia,float velocidadMedia2) {
 	}
 }
