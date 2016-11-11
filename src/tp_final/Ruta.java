@@ -44,7 +44,7 @@ public class Ruta {
 		this.origen = origen;
 	}
 	
-	public Ruta(){
+	public Ruta(double distanciaRuta, double velocidadMaxCiudades, double pesoMaximo){
 	}
 	
 	

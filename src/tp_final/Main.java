@@ -9,26 +9,26 @@ import java.util.ArrayList;
 import clase1_Listas.Recorredor;
 
 public class Main {
+	private static Grafo grafo = new Grafo();
+	
+		public static void Vertices(String uriVertice) throws FileNotFoundException, IOException { //Se le pasa como param el direccion del archivo a leer
 
-	public static void main(String uriVertice) throws FileNotFoundException, IOException { //Se le pasa como param el direccion del archivo a leer
-		// TODO Auto-generated method stub
-		Grafo main = new Grafo();
-		try{
-	        int contadorV=0;
-	        String Ciudades;
-	        String nombreCiudad = null;
-	    	String STaltura = null;
-	    	String STdistancia = null;
-	    	String STvelocidadMedia = null;
-	    	ArrayList<Object> adyacentes = null;
-			ArrayList<String> listaCiudades = new ArrayList<String>();
+			try{
+				int contadorV=0;
+				String Ciudades;
+				String nombreCiudad = null;
+				String STaltura = null;
+				String STdistancia = null;
+				String STvelocidadMedia = null;
+				//ArrayList<Object> adyacentes = null;
+				ArrayList<String> listaCiudades = new ArrayList<String>();
 
-	        //Para abrir el Fichero que se le pasa como param al FileReader
-	        FileReader fr = new FileReader(uriVertice); //Leo el archivo que le paso por parametro
-	        BufferedReader br = new BufferedReader(fr);
+				//Para abrir el Fichero que se le pasa como param al FileReader
+				FileReader fr = new FileReader(uriVertice); //Leo el archivo que le paso por parametro
+				BufferedReader br = new BufferedReader(fr);
 	       
-	        //Recorro ciudad y guardo sus datos en lista
-	        	while((Ciudades = br.readLine())!=null && contadorV<=10 ){  //Guardo en Ciudades cada linea del buffer
+				//Recorro ciudad y guardo sus datos en lista
+				while((Ciudades = br.readLine())!=null && contadorV<=10 ){  //Guardo en Ciudades cada linea del buffer
 	        		String comienzo= Ciudades.substring(0,1);     //obtengo el comienzo de cada linea
 	        		if (comienzo.equals("#")){			//Si es un comentario hago salto de linea
 	            		;
@@ -53,17 +53,60 @@ public class Main {
 	                	Ciudad nuevaCiudad = new Ciudad();
 	                	DatosCiudad datosCiudad = new DatosCiudad(nombreCiudad, altura, distancia, velocidadMedia);
 	                	nuevaCiudad.setDatoCiudad(datosCiudad);
+
 	                	
-	                	main.agregar_ciudad(nuevaCiudad);
+	                	grafo.agregar_ciudad(nuevaCiudad);
 	    				
 	    				
 	    				//System.out.println(Ciudad);       			
 	        		}	
 	        	}
 	        br.close(); // cierro el buffer
-		}catch(Exception e){
-	        System.err.println("No se encontraron archivos");
-	    }
+     
+			}catch(Exception e){
+				System.err.println("No se encontro el archivo de vertices.txt");
+			}
+			
+		}
+		public static void Aristas(String uriArtista) throws FileNotFoundException, IOException {
+			int contLinea=0;
+			String Aristas = null;
+	        String STdistanciaA;
+	        String STvelMaxima;
+	        String STpesoMaxi;
+	        
+	        //Para abrir el Fichero que se le pasa como param al FileReader
+	        FileReader f = new FileReader(uriArtista);    //Leo el archivo que le paso por parametro
+	        BufferedReader b = new BufferedReader(f);
+			
+	        int cantidad = grafo.getListaDeCiudades().getTamanio();
+	        Ruta[][] rutas = new Ruta [cantidad][];
+	        
+	        for(int i = 0; i<cantidad; i++){
+                rutas[i]=new Ruta[10];
+                for(int j = 0; j<cantidad; j++){
+                    rutas[i][j]=new Ruta(0.0,0.0,0.0);
+                }
+            }
+	        
+	        while((Aristas = b.readLine())!=null && contLinea<=10 ){		//obtengo cada linea
+	        	String comienzo= Aristas.substring(0,2);
+	    		if (comienzo.equals("#D")){				//obtengo el comiendo de cada linea
+	        		;
+	    		}else{
+	    			for(int i =0; i<cantidad; i++){
+	    				String[] retval = Aristas.split(",");
+	    				/*for (int j=0; j< cantidad; j++){
+	    					rutas[i][j].getDistancia()=double.Parse(retval[j])
+	    				}*/
+	    				
+	    			}
+	    		}
+			
+	        }
+		}
+			
+			
 		/*Ciudad ciudadVarela = new Ciudad();
 		DatosCiudad datoVarela = new DatosCiudad();
 		datoVarela.setAltura(100);
@@ -91,20 +134,20 @@ public class Main {
 		ciudadAvellaneda.setDatoCiudad(datoAvellaneda);*/
 		
 		//ruta de Varela a La Plata
-		Ruta rutaLP = new Ruta();
+		/*Ruta rutaLP = new Ruta();
 		rutaLP.setOrigen(ciudadVarela);
 		rutaLP.setDestino(ciudadLaPlata);
 		rutaLP.setDistancia(3500);
 		rutaLP.setPesoMaximo(900);
-		rutaLP.setVelocidadMaxCiudades(190);
+		rutaLP.setVelocidadMaxCiudades(190);*/
 		
 		//Ruta de Varela a Avellaneda ----- Crear constructor de Ruta
-		Ruta rutaAvellaneda = new Ruta();
+		/*Ruta rutaAvellaneda = new Ruta();
 		rutaAvellaneda.setOrigen(ciudadVarela);
 		rutaAvellaneda.setDestino(ciudadAvellaneda);
 		rutaAvellaneda.setDistancia(35);
 		rutaAvellaneda.setPesoMaximo(22);
-		rutaAvellaneda.setVelocidadMaxCiudades((float)134.45);
+		rutaAvellaneda.setVelocidadMaxCiudades((float)134.45);*/
 		
 		
 		/*main.agregar_ciudad(ciudadVarela);
@@ -114,12 +157,12 @@ public class Main {
 		//conectar debe tener como parámetro un origen 
 		
 		//Ciudad pos1 = (Ciudad) main.getListaDeCiudades().elemento(0);
-		main.conectar(ciudadVarela, ciudadLaPlata, rutaLP);
-		main.conectar(ciudadVarela, ciudadAvellaneda, rutaAvellaneda);
+		/*main.conectar(ciudadVarela, ciudadLaPlata, rutaLP);
+		main.conectar(ciudadVarela, ciudadAvellaneda, rutaAvellaneda);*/
 		
 		
 		//Recorre la lista de ciudades
-		Recorredor rec = main.getListaDeCiudades().recorredor();
+		/*Recorredor rec = grafo.getListaDeCiudades().recorredor();
 		rec.comenzar();
 		while(!rec.fin()){
 			Ciudad ciudad = (Ciudad) rec.elemento();
@@ -128,21 +171,26 @@ public class Main {
 		}
 		
 		//verificar las rutas que conecta Varela con las 2 ciudades (LP y Avellaneda)
-		Ciudad varela =  (Ciudad) main.getListaDeCiudades().elemento(0);
+		Ciudad varela =  (Ciudad) grafo.getListaDeCiudades().elemento(0);
 		Ruta rutaVarela = varela.getAdyacentes().get(0);
 		//
-		System.out.println(rutaVarela.getDestino());
+		System.out.println(rutaVarela.getDestino());*/
 		
 		//FileReader
 		
-	}	
 	
+		public static void main(String[] args) throws IOException {
+		//("/home/ncavallaro/Escritorio/txt/vertices.txt","/home/ncavallaro/Escritorio/txt/aristas.txt");
+		//("/Users/NicoCav/Documents/vertices.txt")
+		Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt"); 
+	}
+}	
     	//main("/home/ncavallaro/Escritorio/txt/vertices.txt","/home/ncavallaro/Escritorio/txt/aristas.txt");
     	//main("/Users/NicoCav/Documents/vertices.txt","/Users/NicoCav/Documents/aristas.txt"); 
-    }
+    
 
-}
-	main("/home/ncavallaro/Escritorio/txt/vertices.txt");
+
+	
 	
 	
 	
