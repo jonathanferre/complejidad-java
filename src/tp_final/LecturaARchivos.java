@@ -10,6 +10,10 @@ public class LecturaARchivos {
 	private static Grafo grafo = new Grafo();
 	
 	static String separador = (",");
+	static String comentario = ("#");
+	static String comentDistancia = ("#D");
+	static String comentVelocidad = ("#V");
+	static String comentPeso = ("#P");
 	
 	public static void Vertices(String uriVertice) throws FileNotFoundException, IOException { //Se le pasa como param el direccion del archivo a leer
 
@@ -20,8 +24,7 @@ public class LecturaARchivos {
 			String STaltura = null;
 			String STdistancia = null;
 			String STvelocidadMedia = null;
-			//ArrayList<Object> adyacentes = null;
-			ArrayList<String> listaCiudades = new ArrayList<String>();
+
 
 			//Para abrir el Fichero que se le pasa como param al FileReader
 			FileReader fr = new FileReader(uriVertice); //Leo el archivo que le paso por parametro
@@ -30,7 +33,7 @@ public class LecturaARchivos {
 			//Recorro ciudad y guardo sus datos en lista
 			while((Ciudades = br.readLine())!=null && contadorV<=10 ){  //Guardo en Ciudades cada linea del buffer
         		String comienzo= Ciudades.substring(0,1);     //obtengo el comienzo de cada linea
-        		if (comienzo.equals("#")){			//Si es un comentario hago salto de linea
+        		if (comienzo.equals(comentario)){			//Si es un comentario hago salto de linea
             		;
         		}else {
         	        ArrayList<String> lista = new ArrayList<String>();
@@ -39,7 +42,6 @@ public class LecturaARchivos {
                     }
                     //Lleno las variable y las parseo
             		nombreCiudad=lista.get(0);
-            		listaCiudades.add(nombreCiudad);
                 	STaltura=lista.get(1);
                 	int altura = Integer.parseInt(STaltura);
                 	STdistancia=lista.get(2);
@@ -94,17 +96,27 @@ public class LecturaARchivos {
         
         while((linea = b.readLine())!=null && contLinea<=11 ){		//obtengo cada linea
         	String comienzo= linea.substring(0,2);
-    		if (comienzo.equals("#D")){				//obtengo el comiendo de cada linea
+    		if (comienzo.equals(comentDistancia)){				//obtengo el comiendo de cada linea
         		contLinea++;
     		}else{
-    			for(int i =0; i<cantidad; i++){
-    				String[] retval = linea.split(separador);
-    				for (int j=0; j< cantidad; j++){
-    					distancia= retval.toString();
-    					rutas[i][j].setDistancia(Integer.parseInt(distancia));
+    			for(int i =0; i<cantidad; i++){     
+    				for (String retval: linea.split(separador)) {
+    					for (int j=0; j< cantidad; j++){
+        					distancia= retval.toString();
+        					rutas[i][j].setDistancia(Integer.parseInt(distancia));
+        				}	
     				}
     				
+    				
     			}
+            }
+    		
+		}
+        while ((linea = b.readLine()) !=null && contLinea>11 && contLinea<22){
+        	String comienzo = linea.substring(0,2);
+        	if (comienzo.equals(comentVelocidad)){
+        		contLinea++;
+        	}else{
     			for(int i =0; i<cantidad; i++){
     				String[] retval = linea.split(separador);
     				velMaxima= retval.toString();
@@ -113,26 +125,36 @@ public class LecturaARchivos {
     				}
     				
     			}
+        	}
+        }	
+        while ((linea = b.readLine()) !=null && contLinea> 23 && contLinea< 34){
+        	String comienzo = linea.substring(0,2);
+        	if (comienzo.equals(comentPeso)){
+        		contLinea++;
+        	}else{
     			for(int i =0; i<cantidad; i++){
     				String[] retval = linea.split(separador);
     				pesoMax= retval.toString();
     				for (int j=0; j< cantidad; j++){
-    					rutas[i][j].setVelocidadMaxCiudades(Integer.parseInt(pesoMax));
+    					rutas[i][j].setPesoMaximo(Integer.parseInt(pesoMax));
     				}
     				
     			}
-    			for (int i=0; i<cantidad; i++){
-    				for(int j = 0; j<cantidad; j++){
-    					if (rutas[i][j].getDistancia()>0){
-    						grafo.conectar((Ciudad) grafo.getListaDeCiudades().elemento(i), (Ciudad) grafo.getListaDeCiudades().elemento(j), rutas[i][j]);
-    					}
-    				}
-    			}
-    			
-    			
-    		}
-		
+        	}
         }
+        
+    	for (int i=0; i<cantidad; i++){
+    		for(int j = 0; j<cantidad; j++){
+    			if (rutas[i][j].getDistancia()>0){
+    				grafo.conectar((Ciudad) grafo.getListaDeCiudades().elemento(i), (Ciudad) grafo.getListaDeCiudades().elemento(j), rutas[i][j]);
+    			}
+   			}
+   		}
+    			
+    			
+
+		
+
 	}
 	
 	//Método para llamar a los contructores 
