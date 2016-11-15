@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Ciudad {
 	
 	private DatosCiudad datoCiudad;
-	//private int posicion;
+	private int posicion;
 	private ArrayList<Ruta> adyacentes = new ArrayList<Ruta>();
 	
 	
@@ -15,12 +15,13 @@ public class Ciudad {
 	public void setDatoCiudad(DatosCiudad datoCiudad) {
 		this.datoCiudad = datoCiudad;
 	}
-	/*public int getPosicion() {
+	public int getPosicion() {
 		return posicion;
 	}
 	public void setPosicion(int posicion) {
 		this.posicion = posicion;
-	}*/
+	}
+	
 	public ArrayList<Ruta> getAdyacentes() {
 		return adyacentes;
 	}

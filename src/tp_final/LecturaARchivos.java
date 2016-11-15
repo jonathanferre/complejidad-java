@@ -7,7 +7,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LecturaARchivos {
-	private static Grafo grafo = new Grafo();
+	
+	static Grafo grafoParameter;
+	
+	public LecturaARchivos(Grafo g){
+		this.grafoParameter = g;
+	}
+	//pasar grafo por parámetro
+	//private static Grafo grafo = new Grafo();
 	
 	static String separador = (",");
 	static String comentario = ("#");
@@ -57,7 +64,7 @@ public class LecturaARchivos {
                 	nuevaCiudad.setDatoCiudad(datosCiudad);
 
                 	
-                	grafo.agregar_ciudad(nuevaCiudad);
+                	grafoParameter.agregar_ciudad(nuevaCiudad);
     				
     				
     				//System.out.println(Ciudad);       			
@@ -81,7 +88,7 @@ public class LecturaARchivos {
         FileReader f = new FileReader(uriArista);    //Leo el archivo que le paso por parametro
         BufferedReader b = new BufferedReader(f);
 		
-        int cantidad = grafo.getListaDeCiudades().getTamanio();
+        int cantidad = grafoParameter.getListaDeCiudades().getTamanio();
         //Cada ciudad puede tener hasta 10 rutas, cuando conectamos solo se hace cuando la distancia es > 0 
         Ruta[][] rutas = new Ruta [cantidad][];
         
@@ -143,7 +150,7 @@ public class LecturaARchivos {
     	for (int i=0; i<cantidad; i++){
     		for(int j = 0; j<cantidad; j++){
     			if (rutas[i][j].getDistancia()>0){
-    				grafo.conectar((Ciudad) grafo.getListaDeCiudades().elemento(i), (Ciudad) grafo.getListaDeCiudades().elemento(j), rutas[i][j]);
+    				grafoParameter.conectar((Ciudad) grafoParameter.getListaDeCiudades().elemento(i), (Ciudad) grafoParameter.getListaDeCiudades().elemento(j), rutas[i][j]);
     			}
    			}
    		}
@@ -162,8 +169,10 @@ public class LecturaARchivos {
 	}
 	
 	public static void main(String[] args) throws IOException {
-    	construir("/home/ncavallaro/Escritorio/txt/vertices.txt","/home/ncavallaro/Escritorio/txt/aristas.txt");
+    	//construir("/home/ncavallaro/Escritorio/txt/vertices.txt","/home/ncavallaro/Escritorio/txt/aristas.txt");
 		//construir("/Users/NicoCav/Documents/vertices.txt","/Users/NicoCav/Documents/aristas.txt"); 
+    	construir("C:Usuarios/Musimatch/Documentos/vertices.txt","C:Usuarios/Musimatch/Documentos/aristas.txt");
+    	
     }
 }
 

@@ -1,7 +1,5 @@
 package tp_final;
 
-import java.util.ArrayList;
-import java.util.Queue;
 
 import clase1_Listas.ListaConArreglo;
 
@@ -19,6 +17,8 @@ public class Grafo {
 
 	public void agregar_ciudad(Ciudad c){
 		listaDeCiudades.agregar(c, listaDeCiudades.getTamanio());
+		
+		//c.setPosicion(listaDeCiudades.getTamanio()+1);
 	}
 	
 	//se elimina los datos de la ruta y se agrega ruta como parámetro (mas origen y destino)
