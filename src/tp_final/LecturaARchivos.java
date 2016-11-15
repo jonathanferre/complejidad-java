@@ -154,24 +154,39 @@ public class LecturaARchivos {
     			}
    			}
    		}
-    			
-    			
+    	
+	}	
+    	public static void OrigenDestino (String uriOrigDest) throws FileNotFoundException, IOException {
+    		
+   		 ArrayList<String> caminos = new ArrayList<String>();
+   		 //Para abrir el Fichero que se le pasa como param al FileReader
+           FileReader fr = new FileReader(uriOrigDest);    //Leo el archivo que le paso por parametro
+           BufferedReader br = new BufferedReader(fr);
+           
+           String linea;
+           while((linea = br.readLine())!=null ){  
+           	caminos.add(linea);
+           }
+           System.out.println(caminos);
+       br.close();
+   	}		
 
 		
 
-	}
+	
 	
 	//Metodo para llamar a los contructores 
-	public static void construir(String uriVertice,String uriArista) throws FileNotFoundException, IOException{
+	public static void construir(String uriVertice,String uriArista, String uriOrigDest) throws FileNotFoundException, IOException{
 		Vertices(uriVertice);
 		Aristas(uriArista);
+		OrigenDestino(uriOrigDest);
 		
 	}
 	
 	public static void main(String[] args) throws IOException {
     	//construir("/home/ncavallaro/Escritorio/txt/vertices.txt","/home/ncavallaro/Escritorio/txt/aristas.txt");
-		//construir("/Users/NicoCav/Documents/vertices.txt","/Users/NicoCav/Documents/aristas.txt"); 
-    	construir("C:Usuarios/Musimatch/Documentos/vertices.txt","C:Usuarios/Musimatch/Documentos/aristas.txt");
+		construir("/Users/NicoCav/Documents/vertices.txt","/Users/NicoCav/Documents/aristas.txt","/Users/NicoCav/Documents/OrigDest.txt"); 
+    	//construir("C:Usuarios/Musimatch/Documentos/vertices.txt","C:Usuarios/Musimatch/Documentos/aristas.txt");
     	
     }
 }

@@ -17,8 +17,10 @@ public class Main {
 		Grafo g = new Grafo();
 		
 		LecturaARchivos inicializador = new LecturaARchivos(g);
-		inicializador.Aristas(uriArista);
-		inicializador.Vertices(uriVertice);
+		inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
+		inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
+		inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+
 		
 		//llamar al método que cree la matríz y conecte
 		
