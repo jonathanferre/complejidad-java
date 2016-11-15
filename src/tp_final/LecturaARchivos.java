@@ -71,7 +71,6 @@ public class LecturaARchivos {
 		
 	}
 	public static void Aristas(String uriArista) throws FileNotFoundException, IOException {
-		System.out.println("Método ARTISTAS");
 		int contLinea=0;
 		String linea = null;
         String distancia;
@@ -93,58 +92,50 @@ public class LecturaARchivos {
                 rutas[i][j]=new Ruta(0,0.0,0);
             }
         }
-        
-       /* while((linea = b.readLine())!=null && contLinea<=11 ){		//obtengo cada linea
-        	String comienzo= linea.substring(0,2);
-    		if (comienzo.equals(comentDistancia)){				//obtengo el comiendo de cada linea
-        		contLinea++;
-    		}else{*/
-    			for(int i =0; i<11; i++){
-    				linea = b.readLine();
-    				String comienzo= linea.substring(0,2);
-    				if (comienzo.equals(comentDistancia)){
-    					;
-    				}
-    				else{
-    					for(int i =0; i<11; i++){
-    					String[] retval= linea.split(separador);
-    					for (int j=0; j< cantidad; j++){
-    							rutas[i][j].setDistancia(Integer.parseInt(retval[j]));
-    							System.out.println(rutas[i][j].getDistancia()+" m");
-    					}
-    				}	
-    			}	
-    			}
-            	
-		
-        while ((linea = b.readLine()) !=null && contLinea>11 && contLinea<22){
-        	String comienzo = linea.substring(0,2);
-        	if (comienzo.equals(comentVelocidad)){
-        		contLinea++;
-        	}else{
+
+    	for(int x =0; x<2; x++){  //Con este For hacemos que saque la primer linea ya que es un comentario
+    		linea = b.readLine();  
+    		String comienzo= linea.substring(0,2);
+    		if (comienzo.equals(comentDistancia)){  //Si es un comentario pasa a la siguiente linea
+    			;
+    		}else{
     			for(int i =0; i<cantidad; i++){
-    				String[] retval = linea.split(separador);
+    				String[] retval= linea.split(separador);   //guarda cada valor que esta entre "," en la lista de String
     				for (int j=0; j< cantidad; j++){
-    					rutas[i][j].setVelocidadMaxCiudades(Float.parseFloat(retval[j]));
-    					contLinea++;
-    					System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
-    				}	
+    					rutas[i][j].setDistancia(Integer.parseInt(retval[j]));  //guarda en la matriz el valor en la posicion J
+    					//System.out.println(rutas[i][j].getDistancia()+" m");
+    				}
+    				linea = b.readLine();  //lee la siguiente linea
+    			}	
+    		}	
+    	}
+            	
+       for (int x=0; x<2; x++){
+    	   String comienzo = linea.substring(0,2);
+    	   if (comienzo.equals(comentVelocidad)){
+    		   linea= b.readLine();
+    	   }else{
+    		   for(int i =0; i<cantidad; i++){
+    			   String[] retval = linea.split(separador);
+    			   for (int j=0; j< cantidad; j++){
+    				   rutas[i][j].setVelocidadMaxCiudades(Float.parseFloat(retval[j]));
+    				   //System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
+    				}
+    				linea= b.readLine();
     			}
         	}
-        }	
-        while ((linea = b.readLine()) !=null && contLinea> 23 && contLinea< 34){
+        }
+        for (int x=0; x<2; x++){
         	String comienzo = linea.substring(0,2);
         	if (comienzo.equals(comentPeso)){
-        		contLinea++;
+        		linea = b.readLine();
         	}else{
     			for(int i =0; i<cantidad; i++){
     				String[] retval = linea.split(separador);
     				for (int j=0; j< cantidad; j++){
     					rutas[i][j].setPesoMaximo(Integer.parseInt(retval[j]));
-    					contLinea++;
-    					System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
+    					//System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
     				}
-    				
     			}
         	}
         }
@@ -163,7 +154,7 @@ public class LecturaARchivos {
 
 	}
 	
-	//Método para llamar a los contructores 
+	//Metodo para llamar a los contructores 
 	public static void construir(String uriVertice,String uriArista) throws FileNotFoundException, IOException{
 		Vertices(uriVertice);
 		Aristas(uriArista);
@@ -171,8 +162,8 @@ public class LecturaARchivos {
 	}
 	
 	public static void main(String[] args) throws IOException {
-    	//LecturaTxt("/home/ncavallaro/Escritorio/txt/vertices.txt","/home/ncavallaro/Escritorio/txt/aristas.txt");
-		construir("/Users/NicoCav/Documents/vertices.txt","/Users/NicoCav/Documents/aristas.txt"); 
+    	construir("/home/ncavallaro/Escritorio/txt/vertices.txt","/home/ncavallaro/Escritorio/txt/aristas.txt");
+		//construir("/Users/NicoCav/Documents/vertices.txt","/Users/NicoCav/Documents/aristas.txt"); 
     }
 }
 
