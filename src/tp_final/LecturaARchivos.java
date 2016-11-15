@@ -94,24 +94,29 @@ public class LecturaARchivos {
             }
         }
         
-        while((linea = b.readLine())!=null && contLinea<=11 ){		//obtengo cada linea
+       /* while((linea = b.readLine())!=null && contLinea<=11 ){		//obtengo cada linea
         	String comienzo= linea.substring(0,2);
     		if (comienzo.equals(comentDistancia)){				//obtengo el comiendo de cada linea
         		contLinea++;
-    		}else{
-    			for(int i =0; i<cantidad; i++){     
-    				for (String retval: linea.split(separador)) {
-    					for (int j=0; j< cantidad; j++){
-        					distancia= retval.toString();
-        					rutas[i][j].setDistancia(Integer.parseInt(distancia));
-        				}	
+    		}else{*/
+    			for(int i =0; i<11; i++){
+    				linea = b.readLine();
+    				String comienzo= linea.substring(0,2);
+    				if (comienzo.equals(comentDistancia)){
+    					;
     				}
-    				
-    				
+    				else{
+    					for(int i =0; i<11; i++){
+    					String[] retval= linea.split(separador);
+    					for (int j=0; j< cantidad; j++){
+    							rutas[i][j].setDistancia(Integer.parseInt(retval[j]));
+    							System.out.println(rutas[i][j].getDistancia()+" m");
+    					}
+    				}	
+    			}	
     			}
-            }
-    		
-		}
+            	
+		
         while ((linea = b.readLine()) !=null && contLinea>11 && contLinea<22){
         	String comienzo = linea.substring(0,2);
         	if (comienzo.equals(comentVelocidad)){
@@ -119,11 +124,11 @@ public class LecturaARchivos {
         	}else{
     			for(int i =0; i<cantidad; i++){
     				String[] retval = linea.split(separador);
-    				velMaxima= retval.toString();
     				for (int j=0; j< cantidad; j++){
-    					rutas[i][j].setVelocidadMaxCiudades(Float.parseFloat(velMaxima));
-    				}
-    				
+    					rutas[i][j].setVelocidadMaxCiudades(Float.parseFloat(retval[j]));
+    					contLinea++;
+    					System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
+    				}	
     			}
         	}
         }	
@@ -134,9 +139,10 @@ public class LecturaARchivos {
         	}else{
     			for(int i =0; i<cantidad; i++){
     				String[] retval = linea.split(separador);
-    				pesoMax= retval.toString();
     				for (int j=0; j< cantidad; j++){
-    					rutas[i][j].setPesoMaximo(Integer.parseInt(pesoMax));
+    					rutas[i][j].setPesoMaximo(Integer.parseInt(retval[j]));
+    					contLinea++;
+    					System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
     				}
     				
     			}
