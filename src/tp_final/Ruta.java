@@ -35,7 +35,6 @@ public class Ruta {
 		this.pesoMaximo = pesoMaximo;
 	}
 	
-	
 	public Ciudad getOrigen() {
 		return origen;
 	}
@@ -44,7 +43,17 @@ public class Ruta {
 		this.origen = origen;
 	}
 	
-	public Ruta(double distanciaRuta, double velocidadMaxCiudades, double pesoMaximo){
+	public Ruta(int distanciaRuta, float velocidadMaxCiudades, int pesoMaximo){
+		this.distanciaRuta = distanciaRuta;
+		this.velocidadMaxCiudades = velocidadMaxCiudades;
+		this.pesoMaximo = pesoMaximo;
+	}
+	
+	public String toString (){
+		String d="Distancia ruta: "+distanciaRuta;
+		String vm = "Velocidad máxima: "+velocidadMaxCiudades;
+		String p = "Peso máximo " +pesoMaximo;
+		return d+" "+p+" "+vm;
 	}
 	
 	

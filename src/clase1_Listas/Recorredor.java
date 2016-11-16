@@ -22,7 +22,7 @@ public class Recorredor {
     public void proximo()
     {
         this.actual += 1;
-        System.out.println(this.actual);
+        //System.out.println(this.actual);
     }
 
     public Boolean fin()

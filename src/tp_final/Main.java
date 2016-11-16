@@ -12,17 +12,41 @@ public class Main {
 	
 		public static void main(String[] args) throws IOException {
 		
-		//crear grafo o llamar inicializar de grafo (pasar grafo por parámetro
+		//crear grafo o llamar inicializar de grafo (pasar grafo por parï¿½metro
 			
 		Grafo g = new Grafo();
 		
 		LecturaARchivos inicializador = new LecturaARchivos(g);
-		inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
-		inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
-		inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
-
+		inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
+		inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
+		//inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
 		
-		//llamar al método que cree la matríz y conecte
+		//recorriendo las ciudades que tiene el grafo
+		Recorredor r = g.getListaDeCiudades().recorredor();
+		r.comenzar();
+		while(!r.fin()){
+			Ciudad elem = (Ciudad) r.elemento();
+			System.out.println(elem.getDatoCiudad().toString());
+			r.proximo();
+		}
+		
+		//revisar si las ciudades tienen rutas asignadas
+		
+		Recorredor r2 = g.getListaDeCiudades().recorredor();
+		r.comenzar();
+		while(!r2.fin()){
+			Ciudad elem = (Ciudad) r.elemento();
+			//obtengo la/s ruta/s de la ciudad/es
+			for (int i = 0; i < elem.getAdyacentes().size(); i++) {
+				System.out.println(elem.getAdyacentes().size());
+				
+			}
+			r2.proximo();
+		}
+		
+		
+		//llamar al mï¿½todo que cree la matrï¿½z y conecte
+		
 		
 			
 		//Hacer consultas

@@ -11,16 +11,21 @@ public class LecturaARchivos {
 	static Grafo grafoParameter;
 	
 	public LecturaARchivos(Grafo g){
-		this.grafoParameter = g;
+		LecturaARchivos.grafoParameter = g;
 	}
-	//pasar grafo por parámetro
-	//private static Grafo grafo = new Grafo();
 	
 	static String separador = (",");
 	static String comentario = ("#");
 	static String comentDistancia = ("#D");
 	static String comentVelocidad = ("#V");
 	static String comentPeso = ("#P");
+	
+	public static Grafo getGrafoParameter() {
+		return grafoParameter;
+	}
+	public static void setGrafoParameter(Grafo grafoParameter) {
+		LecturaARchivos.grafoParameter = grafoParameter;
+	}
 	
 	public static void Vertices(String uriVertice) throws FileNotFoundException, IOException { //Se le pasa como param el direccion del archivo a leer
 
@@ -96,7 +101,7 @@ public class LecturaARchivos {
         for(int i = 0; i<cantidad; i++){
             rutas[i]=new Ruta[10];
             for(int j = 0; j<cantidad; j++){
-                rutas[i][j]=new Ruta(0,0.0,0);
+                rutas[i][j]=new Ruta(0,(float) 0.0,0);
             }
         }
 
@@ -110,7 +115,7 @@ public class LecturaARchivos {
     				String[] retval= linea.split(separador);   //guarda cada valor que esta entre "," en la lista de String
     				for (int j=0; j< cantidad; j++){
     					rutas[i][j].setDistancia(Integer.parseInt(retval[j]));  //guarda en la matriz el valor en la posicion J
-    					//System.out.println(rutas[i][j].getDistancia()+" m");
+    					System.out.println(rutas[i][j].getDistancia()+" m");
     				}
     				linea = b.readLine();  //lee la siguiente linea
     			}	
@@ -126,7 +131,7 @@ public class LecturaARchivos {
     			   String[] retval = linea.split(separador);
     			   for (int j=0; j< cantidad; j++){
     				   rutas[i][j].setVelocidadMaxCiudades(Float.parseFloat(retval[j]));
-    				   //System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
+    				   System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
     				}
     				linea= b.readLine();
     			}
@@ -141,7 +146,7 @@ public class LecturaARchivos {
     				String[] retval = linea.split(separador);
     				for (int j=0; j< cantidad; j++){
     					rutas[i][j].setPesoMaximo(Integer.parseInt(retval[j]));
-    					//System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
+    					System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
     				}
     			}
         	}
@@ -182,13 +187,6 @@ public class LecturaARchivos {
 		OrigenDestino(uriOrigDest);
 		
 	}
-	
-	public static void main(String[] args) throws IOException {
-    	//construir("/home/ncavallaro/Escritorio/txt/vertices.txt","/home/ncavallaro/Escritorio/txt/aristas.txt");
-		construir("/Users/NicoCav/Documents/vertices.txt","/Users/NicoCav/Documents/aristas.txt","/Users/NicoCav/Documents/OrigDest.txt"); 
-    	//construir("C:Usuarios/Musimatch/Documentos/vertices.txt","C:Usuarios/Musimatch/Documentos/aristas.txt");
-    	
-    }
 }
 
 
