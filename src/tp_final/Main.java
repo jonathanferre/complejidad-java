@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import clase1_Listas.ListaConArreglo;
 import clase1_Listas.Recorredor;
 
 public class Main {	
@@ -17,9 +18,9 @@ public class Main {
 		Grafo g = new Grafo();
 		
 		LecturaARchivos inicializador = new LecturaARchivos(g);
-		inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
-		inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
-		//inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+		inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
+		inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
+		inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
 		
 		//recorriendo las ciudades que tiene el grafo
 		Recorredor r = g.getListaDeCiudades().recorredor();
@@ -27,6 +28,7 @@ public class Main {
 		while(!r.fin()){
 			Ciudad elem = (Ciudad) r.elemento();
 			System.out.println(elem.getDatoCiudad().toString());
+			System.out.println(elem.getAdyacentes().toString());
 			r.proximo();
 		}
 		
@@ -43,6 +45,7 @@ public class Main {
 			}
 			r2.proximo();
 		}
+		
 		
 		
 		//llamar al m�todo que cree la matr�z y conecte
