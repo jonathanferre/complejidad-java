@@ -46,8 +46,10 @@ public class Main {
 			System.out.println(elem.getAdyacentes().get(1).getDestino().getDatoCiudad().getNombreCiudad());
 			
 			r.proximo();
+			
 		}
 		//Hacer consultas
+		
 		}
 }	
     	
