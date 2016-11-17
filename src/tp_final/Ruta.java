@@ -43,10 +43,12 @@ public class Ruta {
 		this.origen = origen;
 	}
 	
-	public Ruta(int distanciaRuta, float velocidadMaxCiudades, int pesoMaximo){
+	public Ruta(Ciudad destino, int distanciaRuta, float velocidadMaxCiudades, int pesoMaximo){
+		this.destino = destino;
 		this.distanciaRuta = distanciaRuta;
 		this.velocidadMaxCiudades = velocidadMaxCiudades;
 		this.pesoMaximo = pesoMaximo;
+		
 	}
 	
 	public String toString (){

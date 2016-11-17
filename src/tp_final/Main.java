@@ -17,10 +17,20 @@ public class Main {
 			
 		Grafo g = new Grafo();
 		
+		
+		
+		
+		//llamar al m�todo que cree la matr�z y conecte
 		LecturaARchivos inicializador = new LecturaARchivos(g);
-		inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
-		inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
-		inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+		//Archivos Nico
+	//	inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
+	//	inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
+	//	inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+		
+		//Archivos Joni
+		inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
+		inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
+	//	inicializador.OrigenDestino("/home/jferre/Documentos/OrigDest.txt");
 		
 		//recorriendo las ciudades que tiene el grafo
 		Recorredor r = g.getListaDeCiudades().recorredor();
@@ -28,30 +38,15 @@ public class Main {
 		while(!r.fin()){
 			Ciudad elem = (Ciudad) r.elemento();
 			System.out.println(elem.getDatoCiudad().toString());
+			
+			//obtengo la/s ruta/s de la ciudad/es
 			System.out.println(elem.getAdyacentes().toString());
+			
+			//Verificar si la ruta está yendo a la ciudad indicada
+			System.out.println(elem.getAdyacentes().get(1).getDestino().getDatoCiudad().getNombreCiudad());
+			
 			r.proximo();
 		}
-		
-		//revisar si las ciudades tienen rutas asignadas
-		
-		Recorredor r2 = g.getListaDeCiudades().recorredor();
-		r.comenzar();
-		while(!r2.fin()){
-			Ciudad elem = (Ciudad) r.elemento();
-			//obtengo la/s ruta/s de la ciudad/es
-			for (int i = 0; i < elem.getAdyacentes().size(); i++) {
-				System.out.println(elem.getAdyacentes().size());
-				
-			}
-			r2.proximo();
-		}
-		
-		
-		
-		//llamar al m�todo que cree la matr�z y conecte
-		
-		
-			
 		//Hacer consultas
 		}
 }	

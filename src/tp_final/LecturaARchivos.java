@@ -101,7 +101,7 @@ public class LecturaARchivos {
         for(int i = 0; i<cantidad; i++){
             rutas[i]=new Ruta[10];
             for(int j = 0; j<cantidad; j++){
-                rutas[i][j]=new Ruta(0,(float) 0.0,0);
+                rutas[i][j]=new Ruta(new Ciudad(),0,(float) 0.0,0);
             }
         }
 
