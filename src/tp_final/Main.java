@@ -23,13 +23,13 @@ public class Main {
 		//llamar al m�todo que cree la matr�z y conecte
 		LecturaARchivos inicializador = new LecturaARchivos(g);
 		//Archivos Nico
-	//	inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
-	//	inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
-	//	inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+		inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
+		inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
+		inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
 		
 		//Archivos Joni
-		inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
-		inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
+		//inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
+		//inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
 	//	inicializador.OrigenDestino("/home/jferre/Documentos/OrigDest.txt");
 		
 		//recorriendo las ciudades que tiene el grafo
@@ -49,6 +49,12 @@ public class Main {
 			
 		}
 		//Hacer consultas
+		
+		//public void  primerConsulta(Ciudad origen, Ciudad destino){
+			
+		//}
+		
+		
 		
 		}
 }	

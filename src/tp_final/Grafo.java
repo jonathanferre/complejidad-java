@@ -24,9 +24,10 @@ public class Grafo {
 	//se elimina los datos de la ruta y se agrega ruta como parÃ¡metro (mas origen y destino)
 	public void conectar(Ciudad origen, Ciudad destino, Ruta ruta){
 		//GetDestino tiene datoCiudad=Null;
-		
-		origen.getAdyacentes().add(new Ruta(ruta.getDestino(),ruta.getDistancia(), ruta.getVelocidadMaxCiudades(), ruta.getPesoMaximo()));
-		destino.getAdyacentes().add(new Ruta(ruta.getOrigen(),ruta.getDistancia(), ruta.getVelocidadMaxCiudades(), ruta.getPesoMaximo()));
+		//crear una variable aux donde guarde el destino y después setear
+	
+		origen.getAdyacentes().add(new Ruta(ruta.getDistancia(), ruta.getVelocidadMaxCiudades(), ruta.getPesoMaximo()));
+		destino.getAdyacentes().add(new Ruta(ruta.getDistancia(), ruta.getVelocidadMaxCiudades(), ruta.getPesoMaximo()));
 	}
 	
 	//recorrer grafos

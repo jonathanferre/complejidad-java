@@ -43,8 +43,7 @@ public class Ruta {
 		this.origen = origen;
 	}
 	
-	public Ruta(Ciudad destino, int distanciaRuta, float velocidadMaxCiudades, int pesoMaximo){
-		this.destino = destino;
+	public Ruta( int distanciaRuta, float velocidadMaxCiudades, int pesoMaximo){
 		this.distanciaRuta = distanciaRuta;
 		this.velocidadMaxCiudades = velocidadMaxCiudades;
 		this.pesoMaximo = pesoMaximo;

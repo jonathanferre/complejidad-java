@@ -31,7 +31,27 @@ public class RecorredorGrafo {
 				}
 			}
 		}
-		
+	
+	
+	public Ruta buscar_VelocidadMax (Ciudad origen, Ciudad destino, Ruta camino, Ruta mejorCamino){
+		camino.setOrigen(origen);
+		visitados.add(origen);
+		if (origen.equals(destino)){
+			if (camino.getVelocidadMaxCiudades()>mejorCamino.getVelocidadMaxCiudades()){
+				mejorCamino=camino;
+				
+			}
+		}else{
+			for (Ruta r: origen.getAdyacentes()){
+				if (!visitados.contains(r)){
+					buscar_VelocidadMax(r.getDestino(), destino, camino, mejorCamino);
+				}
+			}
+		}
+		return mejorCamino;
+	}
+	
+	
 	}
  
-}
+

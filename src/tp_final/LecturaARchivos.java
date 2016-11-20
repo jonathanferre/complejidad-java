@@ -97,11 +97,12 @@ public class LecturaARchivos {
         //Cada ciudad puede tener hasta 10 rutas, cuando conectamos solo se hace cuando la distancia es > 0 
         Ruta[][] rutas = new Ruta [cantidad][];
         
+        //Matriz: i son las filas, j son las columnas 
         //Se crea la matriz de 10 x 10
         for(int i = 0; i<cantidad; i++){
             rutas[i]=new Ruta[10];
             for(int j = 0; j<cantidad; j++){
-                rutas[i][j]=new Ruta(new Ciudad(),0,(float) 0.0,0);
+                rutas[i][j]=new Ruta(0,(float) 0.0,0);
             }
         }
 
