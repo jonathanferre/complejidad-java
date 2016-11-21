@@ -19,12 +19,19 @@ public class Main {
 		Grafo g = new Grafo();		
 		
 		
-		//llamar al mï¿½todo que cree la matrï¿½z y conecte
+		//llamar al metodo que cree la matriz y conecte
 		LecturaARchivos inicializador = new LecturaARchivos(g);
 		//Archivos Nico
-		inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
-		inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
-		inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+		//windows
+		//inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
+		//inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
+		//inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+		//Ubuntu
+		inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
+		inicializador.Aristas("/home/ncavallaro/Escritorio/txt/aristas.txt");
+		inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
+		
+		
 		
 		//Archivos Joni
 		//inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
@@ -53,16 +60,16 @@ public class Main {
 		
 		System.out.println(">>>Modulo de Consulta>>>");
 		System.out.println("Eliga una de las siguientes opciones");
-		System.out.println("1-Florencio Varela,La Plata");
-		System.out.println("2-Buenos Aires,Avellaneda");
-		System.out.println("3-Mar del Plata,Azul");
-		System.out.println("4-Olavarria,Bolivar");
-		System.out.println("5-Tandil,Junin");
-		System.out.println("6-Florencio Varela,Junin");
+		System.out.println("1- " + inicializador.listaCamino.get(0));
+		System.out.println("2- " + inicializador.listaCamino.get(1));
+		System.out.println("3- " + inicializador.listaCamino.get(2));
+		System.out.println("4- " + inicializador.listaCamino.get(3));
+		System.out.println("5- " + inicializador.listaCamino.get(4));
+		System.out.println("6- " + inicializador.listaCamino.get(5));
 		System.out.println("Su opcion es:");
 		String opcion = sc.nextLine();
 		
-		//Variables vacías
+		//Variables vacï¿½as
 		Ciudad origen = null;
 		Ciudad destino = null;
 		Ruta camino = null;
@@ -108,9 +115,9 @@ public class Main {
 		RecorredorGrafo recorredorGrafo = new RecorredorGrafo();
 
 		System.out.println("Eliga que desea hacer");
-		System.out.println("1-Velocidad máxima que puede alcanzar un vehículo entre una ciudad origen y otradestino.");
-		System.out.println("2-Ruta desde una ciudad origen y otra destino donde la distancia transitada seamínima.");
-		System.out.println("3-Variación de Alturas entre una ciudad origen y todas las ciudades vecinas.");
+		System.out.println("1-Velocidad mï¿½xima que puede alcanzar un vehï¿½culo entre una ciudad origen y otradestino.");
+		System.out.println("2-Ruta desde una ciudad origen y otra destino donde la distancia transitada seamï¿½nima.");
+		System.out.println("3-Variaciï¿½n de Alturas entre una ciudad origen y todas las ciudades vecinas.");
 		System.out.println("Su opcion es:");
 		String consulta = sc.nextLine();
 		

@@ -10,7 +10,7 @@ public class Recorredor {
     public void comenzar()
     {
         this.actual = 0;
-        System.out.println(this.actual);
+        //System.out.println(this.actual);
     }
 
     //Error
@@ -29,7 +29,7 @@ public class Recorredor {
     {
         if (this.actual == lista.getTamanio())
         {
-            System.out.println("Fin");
+            //System.out.println("Fin");
             return true;
         }
         else

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class LecturaARchivos {
 	
 	static Grafo grafoParameter;
+	static ArrayList<String> listaCamino = new ArrayList<String>();
 	
 	public LecturaARchivos(Grafo g){
 		LecturaARchivos.grafoParameter = g;
@@ -116,7 +117,7 @@ public class LecturaARchivos {
     				String[] retval= linea.split(separador);   //guarda cada valor que esta entre "," en la lista de String
     				for (int j=0; j< cantidad; j++){
     					rutas[i][j].setDistancia(Integer.parseInt(retval[j]));  //guarda en la matriz el valor en la posicion J
-    					System.out.println(rutas[i][j].getDistancia()+" m");
+    					//System.out.println(rutas[i][j].getDistancia()+" m");
     				}
     				linea = b.readLine();  //lee la siguiente linea
     			}	
@@ -132,7 +133,7 @@ public class LecturaARchivos {
     			   String[] retval = linea.split(separador);
     			   for (int j=0; j< cantidad; j++){
     				   rutas[i][j].setVelocidadMaxCiudades(Float.parseFloat(retval[j]));
-    				   System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
+    				   //System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
     				}
     				linea= b.readLine();
     			}
@@ -147,7 +148,7 @@ public class LecturaARchivos {
     				String[] retval = linea.split(separador);
     				for (int j=0; j< cantidad; j++){
     					rutas[i][j].setPesoMaximo(Integer.parseInt(retval[j]));
-    					System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
+    					//System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
     				}
     			}
         	}
@@ -164,16 +165,14 @@ public class LecturaARchivos {
 	}	
     	public static void OrigenDestino (String uriOrigDest) throws FileNotFoundException, IOException {
     		
-   		 ArrayList<String> caminos = new ArrayList<String>();
    		 //Para abrir el Fichero que se le pasa como param al FileReader
            FileReader fr = new FileReader(uriOrigDest);    //Leo el archivo que le paso por parametro
            BufferedReader br = new BufferedReader(fr);
            
            String linea;
            while((linea = br.readLine())!=null ){  
-           	caminos.add(linea);
+        	   listaCamino.add(linea);
            }
-           System.out.println(caminos);
        br.close();
    	}		
 
