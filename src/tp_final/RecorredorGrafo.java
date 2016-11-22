@@ -44,15 +44,13 @@ public class RecorredorGrafo {
 	}
 	
 	
-	public void buscar_VariacionAltura (Ciudad origen){
+	public int buscar_VariacionAltura (Ciudad origen){
 		int altura = origen.getDatoCiudad().getAltura();
-		int variacionAltura = 0;
+		
 		for (int i = 0; i < origen.getAdyacentes().size(); i++) {
 			int alturaVar=  origen.getAdyacentes().get(i).getDestino().getDatoCiudad().getAltura();
-			variacionAltura=alturaVar-altura;
-			System.out.println("La variacion de altura que hay entre la ciudad "+origen.getDatoCiudad().getNombreCiudad()+" y la ciudad "+ origen.getAdyacentes().get(i).getDestino().getDatoCiudad().getNombreCiudad()+" es: "+ variacionAltura);
 		}
-		
+		return altura;
 			
 		
 	}

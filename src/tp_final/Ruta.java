@@ -2,60 +2,39 @@ package tp_final;
 
 public class Ruta {
 	
-	private Ciudad origen;
 	private Ciudad destino;
-	private int distanciaRuta;
-	private float velocidadMaxCiudades;
-	private int pesoMaximo;
+	private Costos costos;
 	
 	//
 	public Ciudad getDestino() {
 		return destino;
 	}
+
 	public void setDestino(Ciudad destino) {
 		this.destino = destino;
 	}
+	
+	public Costos getCostos() {
+		return costos;
+	}
+	public void setCostos(Costos costos) {
+		this.costos = costos;
+	}
+	
+	public Ruta(Ciudad destino, Costos costos) {
+		super();
+		this.destino = destino;
+		this.costos = costos;
+	}
 
-	public int getDistancia() {
-		return distanciaRuta;
-	}
-	public void setDistancia(int distancia) {
-		this.distanciaRuta = distancia;
-	}
-	public float getVelocidadMaxCiudades() {
-		return velocidadMaxCiudades;
-	}
-	public void setVelocidadMaxCiudades(float velocidadMaxCiudades) {
-		this.velocidadMaxCiudades = velocidadMaxCiudades;
-	}
-	public int getPesoMaximo() {
-		return pesoMaximo;
-	}
-	public void setPesoMaximo(int pesoMaximo) {
-		this.pesoMaximo = pesoMaximo;
-	}
-	
-	public Ciudad getOrigen() {
-		return origen;
-	}
-	
-	public void setOrigen(Ciudad origen) {
-		this.origen = origen;
-	}
-	
-	public Ruta( int distanciaRuta, float velocidadMaxCiudades, int pesoMaximo){
-		this.distanciaRuta = distanciaRuta;
-		this.velocidadMaxCiudades = velocidadMaxCiudades;
-		this.pesoMaximo = pesoMaximo;
-		
-	}
-	
 	public String toString (){
-		String d="Distancia ruta: "+distanciaRuta;
-		String vm = "Velocidad máxima: "+velocidadMaxCiudades;
-		String p = "Peso máximo " +pesoMaximo;
-		return d+" "+p+" "+vm;
+		String o = "Esta ruta tiene destino: "+destino.getDatoCiudad().getNombreCiudad();
+		String d="Distancia ruta: "+costos.getDistanciaRuta();
+		String vm = "Velocidad máxima: "+costos.getVelocidadMaxCiudades();
+		String p = "Peso máximo " +costos.getPesoMaximo();
+		return o+" Y sus costos son: "+d+" "+p+" "+vm;
 	}
+	
 	
 	
 	

@@ -27,29 +27,29 @@ public class Main {
 		//inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
 		//inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
 		//Ubuntu
-		inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
+		/*inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
 		inicializador.Aristas("/home/ncavallaro/Escritorio/txt/aristas.txt");
-		inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
+		inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt"); */
 		
 		
 		
 		//Archivos Joni
-		//inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
-		//inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
-	//	inicializador.OrigenDestino("/home/jferre/Documentos/OrigDest.txt");
+		inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
+		inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
+		inicializador.OrigenDestino("/home/jferre/Documentos/OrigDest.txt");
 		
 		//recorriendo las ciudades que tiene el grafo
 		Recorredor r = g.getListaDeCiudades().recorredor();
 		r.comenzar();
 		while(!r.fin()){
 			Ciudad elem = (Ciudad) r.elemento();
-			//System.out.println(elem.getDatoCiudad().toString());
+			System.out.println(elem.getDatoCiudad().toString());
 			
 			//obtengo la/s ruta/s de la ciudad/es
-			//System.out.println(elem.getAdyacentes().toString());
+			System.out.println(elem.getAdyacentes().toString());
 			
 			//Verificar si la ruta está yendo a la ciudad indicada
-			//System.out.println(elem.getAdyacentes().get(1).getDestino().getDatoCiudad().getNombreCiudad());
+			System.out.println(elem.getAdyacentes().get(0).getDestino().getDatoCiudad().getNombreCiudad());
 			
 			r.proximo();
 			
@@ -79,7 +79,6 @@ public class Main {
 		if (opcion.equals("1")){
 			origen = (Ciudad) g.getListaDeCiudades().elemento(0);
 			destino = (Ciudad) g.getListaDeCiudades().elemento(1);
-			
 		}
 		
 		if (opcion.equals("2")){
@@ -120,6 +119,8 @@ public class Main {
 		System.out.println("3-Variaci�n de Alturas entre una ciudad origen y todas las ciudades vecinas.");
 		System.out.println("Su opcion es:");
 		String consulta = sc.nextLine();
+		
+		//
 		
 		
 		if (consulta.equals("1")){

@@ -61,18 +61,21 @@ public class LecturaARchivos {
                 	int distancia= Integer.parseInt(STdistancia);
                 	STvelocidadMedia=lista.get(3);
                 	float velocidadMedia=Float.parseFloat(STvelocidadMedia);
-                	contadorV++;
+                	
                 	
                 	//Armo la ciudad con sus datos
                 	
                 	Ciudad nuevaCiudad = new Ciudad();
                 	DatosCiudad datosCiudad = new DatosCiudad(nombreCiudad, altura, distancia, velocidadMedia);
                 	nuevaCiudad.setDatoCiudad(datosCiudad);
-
+                	
+                	//agregar pos a la ciudades
+                	nuevaCiudad.setPosicion(contadorV);
                 	
                 	grafoParameter.agregar_ciudad(nuevaCiudad);
     				
-    				
+                	contadorV++;
+
     				//System.out.println(Ciudad);       			
         		}	
         	}
@@ -96,7 +99,17 @@ public class LecturaARchivos {
 		
         int cantidad = grafoParameter.getListaDeCiudades().getTamanio();
         //Cada ciudad puede tener hasta 10 rutas, cuando conectamos solo se hace cuando la distancia es > 0 
-        Ruta[][] rutas = new Ruta [cantidad][];
+      
+        Costos [][] costos = new Costos [cantidad][];
+        for (int i = 0; i < cantidad; i++) {
+			costos[i] = new Costos[10];
+			for(int j = 0; j<cantidad; j++){
+				costos[i][j] = new Costos(0, (float) 0.0, 0);
+			}
+		}
+        
+        
+        /* Ruta[][] rutas = new Ruta [cantidad][];
         
         //Matriz: i son las filas, j son las columnas 
         //Se crea la matriz de 10 x 10
@@ -105,7 +118,7 @@ public class LecturaARchivos {
             for(int j = 0; j<cantidad; j++){
                 rutas[i][j]=new Ruta(0,(float) 0.0,0);
             }
-        }
+        }*/
 
     	for(int x =0; x<2; x++){  //Con este For hacemos que saque la primer linea ya que es un comentario
     		linea = b.readLine();  
@@ -116,7 +129,7 @@ public class LecturaARchivos {
     			for(int i =0; i<cantidad; i++){
     				String[] retval= linea.split(separador);   //guarda cada valor que esta entre "," en la lista de String
     				for (int j=0; j< cantidad; j++){
-    					rutas[i][j].setDistancia(Integer.parseInt(retval[j]));  //guarda en la matriz el valor en la posicion J
+    					costos[i][j].setDistanciaRuta(Integer.parseInt(retval[j]));//guarda en la matriz el valor en la posicion J
     					//System.out.println(rutas[i][j].getDistancia()+" m");
     				}
     				linea = b.readLine();  //lee la siguiente linea
@@ -132,7 +145,7 @@ public class LecturaARchivos {
     		   for(int i =0; i<cantidad; i++){
     			   String[] retval = linea.split(separador);
     			   for (int j=0; j< cantidad; j++){
-    				   rutas[i][j].setVelocidadMaxCiudades(Float.parseFloat(retval[j]));
+    				   costos[i][j].setVelocidadMaxCiudades(Float.parseFloat(retval[j]));
     				   //System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
     				}
     				linea= b.readLine();
@@ -147,7 +160,7 @@ public class LecturaARchivos {
     			for(int i =0; i<cantidad; i++){
     				String[] retval = linea.split(separador);
     				for (int j=0; j< cantidad; j++){
-    					rutas[i][j].setPesoMaximo(Integer.parseInt(retval[j]));
+    					costos[i][j].setPesoMaximo(Integer.parseInt(retval[j]));
     					//System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
     				}
     			}
@@ -156,8 +169,8 @@ public class LecturaARchivos {
         
     	for (int i=0; i<cantidad; i++){
     		for(int j = 0; j<cantidad; j++){
-    			if (rutas[i][j].getDistancia()>0){
-    				grafoParameter.conectar((Ciudad) grafoParameter.getListaDeCiudades().elemento(i), (Ciudad) grafoParameter.getListaDeCiudades().elemento(j), rutas[i][j]);
+    			if (costos[i][j].getDistanciaRuta()>0){
+    				grafoParameter.conectar((Ciudad) grafoParameter.getListaDeCiudades().elemento(i), (Ciudad) grafoParameter.getListaDeCiudades().elemento(j), costos[i][j]);
     			}
    			}
    		}

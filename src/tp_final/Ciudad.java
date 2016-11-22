@@ -44,19 +44,7 @@ public class Ciudad {
 	public void printVelocidadMediaCiudad(){
 		System.out.println(datoCiudad.getVelocidadMedia());
 	}
-	
-	public void mostrar(){
-		if (this.getAdyacentes().isEmpty()) {
-			System.out.println(this.getDatoCiudad().getNombreCiudad() + "no tiene adyacentes");			
-		}else{
-			ArrayList<Ciudad> rutasAux = new ArrayList<Ciudad>();
-			for(Ruta a: this.getAdyacentes()){
-				System.out.println(this.getDatoCiudad().getNombreCiudad() + "<- tiene como adyacente a:" + a.getDestino().getDatoCiudad().getNombreCiudad() + " / distancia =" + a.getPesoMaximo());
-				rutasAux.add(a.getDestino());
-			}
-		}
-	}
-	
+
 
 	
 }
