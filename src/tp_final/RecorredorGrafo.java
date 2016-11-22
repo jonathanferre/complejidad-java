@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 public class RecorredorGrafo {
 	
-	private ArrayList<Ciudad> visitados = new ArrayList<Ciudad>();
+	
 	
 			
 	public void buscar_VelocidadMax (Ciudad origen, Ciudad destino, Ruta camino, Ruta mejorCamino){
+		ArrayList<Boolean> visitados = new ArrayList<Boolean>();
+		
 		camino.setOrigen(origen);
 		visitados.add(origen);
 		if (origen.equals(destino)){
-			if (camino.getVelocidadMaxCiudades()>mejorCamino.getVelocidadMaxCiudades()){
+			if (camino.getCostos().getVelocidadMaxCiudades()>mejorCamino.getCostos().getVelocidadMaxCiudades()){
 				mejorCamino=camino;
 				
 			}
@@ -26,10 +28,11 @@ public class RecorredorGrafo {
 	}
 	
 	public void buscar_DistanciaMin (Ciudad origen, Ciudad destino, Ruta camino, Ruta mejorCamino){
+		ArrayList<Boolean> visitados = new ArrayList<Boolean>();
 		camino.setOrigen(origen);
 		visitados.add(origen);
 		if (origen.equals(destino)){
-			if (camino.getDistancia()<mejorCamino.getDistancia()){
+			if (camino.getCostos().getDistanciaRuta()<mejorCamino.getCostos().getDistanciaRuta()){
 				mejorCamino=camino;
 				
 			}
@@ -44,18 +47,17 @@ public class RecorredorGrafo {
 	}
 	
 	
-	public int buscar_VariacionAltura (Ciudad origen){
-		int altura = origen.getDatoCiudad().getAltura();
-		
-		for (int i = 0; i < origen.getAdyacentes().size(); i++) {
-			int alturaVar=  origen.getAdyacentes().get(i).getDestino().getDatoCiudad().getAltura();
-		}
-		return altura;
-			
-		
-	}
+	public void buscar_VariacionAltura (Ciudad origen){
+  		int altura = origen.getDatoCiudad().getAltura();
+ 		int variacionAltura = 0;
+  		for (int i = 0; i < origen.getAdyacentes().size(); i++) {
+  			int alturaVar=  origen.getAdyacentes().get(i).getDestino().getDatoCiudad().getAltura();
+  			variacionAltura=altura-alturaVar;
+ 			System.out.println("La variacion de altura que hay entre la ciudad "+origen.getDatoCiudad().getNombreCiudad()+" y la ciudad "+ origen.getAdyacentes().get(i).getDestino().getDatoCiudad().getNombreCiudad()+" es: "+ variacionAltura);
+  		}
+ 		
 	
 	
 	}
  
-
+}

@@ -146,7 +146,7 @@ public class LecturaARchivos {
     			   String[] retval = linea.split(separador);
     			   for (int j=0; j< cantidad; j++){
     				   costos[i][j].setVelocidadMaxCiudades(Float.parseFloat(retval[j]));
-    				   //System.out.println(rutas[i][j].getVelocidadMaxCiudades()+" m/s2");
+    				   //System.out.println(costos[i][j].getVelocidadMaxCiudades()+" m/s2");
     				}
     				linea= b.readLine();
     			}
@@ -161,8 +161,9 @@ public class LecturaARchivos {
     				String[] retval = linea.split(separador);
     				for (int j=0; j< cantidad; j++){
     					costos[i][j].setPesoMaximo(Integer.parseInt(retval[j]));
-    					//System.out.println(rutas[i][j].getPesoMaximo()+ " Kg");
+    					System.out.println(costos[i][j].getPesoMaximo()+ " Kg");
     				}
+    				linea= b.readLine();
     			}
         	}
         }

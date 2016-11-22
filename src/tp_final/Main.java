@@ -27,16 +27,16 @@ public class Main {
 		//inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
 		//inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
 		//Ubuntu
-		/*inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
+		inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
 		inicializador.Aristas("/home/ncavallaro/Escritorio/txt/aristas.txt");
-		inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt"); */
+		inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
 		
 		
 		
 		//Archivos Joni
-		inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
-		inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
-		inicializador.OrigenDestino("/home/jferre/Documentos/OrigDest.txt");
+		//inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
+		//inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
+		//inicializador.OrigenDestino("/home/jferre/Documentos/OrigDest.txt");
 		
 		//recorriendo las ciudades que tiene el grafo
 		Recorredor r = g.getListaDeCiudades().recorredor();
