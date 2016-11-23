@@ -4,42 +4,42 @@ import java.util.ArrayList;
 
 public class RecorredorGrafo {
 	
-	
+
 	
 			
-	public void buscar_VelocidadMax (Ciudad origen, Ciudad destino, Ruta camino, Ruta mejorCamino){
-		ArrayList<Boolean> visitados = new ArrayList<Boolean>();
-		
-		camino.setOrigen(origen);
-		visitados.add(origen);
+	public void buscar_VelocidadMax (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino, double vma,double vmm){
+		camino.add(origen);
 		if (origen.equals(destino)){
-			if (camino.getCostos().getVelocidadMaxCiudades()>mejorCamino.getCostos().getVelocidadMaxCiudades()){
-				mejorCamino=camino;
-				
+			if (vma > vmm){
+				mejorCamino.clear();
+				for (Ciudad ciudad : camino) {
+					mejorCamino.add(ciudad);
+				}
 			}
 		}else{
 			for (Ruta r: origen.getAdyacentes()){
-				if (!visitados.contains(r)){
-					buscar_VelocidadMax(r.getDestino(), destino, camino, mejorCamino);
+				if (!camino.contains(r)){
+					buscar_VelocidadMax(r.getDestino(), destino, camino, mejorCamino, Math.max(vma, r.getCostos().getVelocidadMaxCiudades()),vmm);
 				}
 			}
 		}
+		camino.remove(origen);
 		System.out.println(mejorCamino);
 	}
 	
-	public void buscar_DistanciaMin (Ciudad origen, Ciudad destino, Ruta camino, Ruta mejorCamino){
-		ArrayList<Boolean> visitados = new ArrayList<Boolean>();
-		camino.setOrigen(origen);
-		visitados.add(origen);
+	public void buscar_DistanciaMin (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino , double DistanciaMin, double DistanciaMinMejor ){
+		camino.add(origen);
 		if (origen.equals(destino)){
-			if (camino.getCostos().getDistanciaRuta()<mejorCamino.getCostos().getDistanciaRuta()){
-				mejorCamino=camino;
-				
+			if (DistanciaMin < DistanciaMinMejor){
+				mejorCamino.clear();
+				for (Ciudad ciudad : camino){
+					mejorCamino.add(ciudad);
+				}
 			}
 		}else{
 			for (Ruta r: origen.getAdyacentes()){
-				if (!visitados.contains(r)){
-					buscar_VelocidadMax(r.getDestino(), destino, camino, mejorCamino);
+				if (!camino.contains(r)){
+					buscar_VelocidadMax(r.getDestino(), destino, camino, mejorCamino, Math.min(DistanciaMin, r.getCostos().getDistanciaRuta()), DistanciaMinMejor);
 				}
 			}
 		}

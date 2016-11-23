@@ -72,8 +72,10 @@ public class Main {
 		//Variables vac�as
 		Ciudad origen = null;
 		Ciudad destino = null;
-		Ruta camino = null;
-		Ruta mejorCamino = null;
+		ArrayList<Ciudad> camino = null;
+		ArrayList<Ciudad> mejorCamino = null;
+		double valor = 0.0;
+		double valormax = 0.0;
 		
 		
 		if (opcion.equals("1")){
@@ -124,11 +126,11 @@ public class Main {
 		
 		
 		if (consulta.equals("1")){
-			recorredorGrafo.buscar_VelocidadMax(origen, destino, camino, mejorCamino);
+			recorredorGrafo.buscar_VelocidadMax(origen, destino, camino, mejorCamino, valor  , valormax);
 		}
 		
 		if (consulta.equals("2")){
-			recorredorGrafo.buscar_DistanciaMin(origen, destino, camino, mejorCamino);
+			recorredorGrafo.buscar_DistanciaMin(origen, destino, camino, mejorCamino, valor, valormax);
 		}
 		
 		if (consulta.equals("3")){
