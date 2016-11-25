@@ -3,9 +3,6 @@ package tp_final;
 import java.util.ArrayList;
 
 public class RecorredorGrafo {
-	
-
-	
 			
 	public void buscar_VelocidadMax (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino, double vma,double vmm){
 		camino.add(origen);
@@ -16,15 +13,16 @@ public class RecorredorGrafo {
 					mejorCamino.add(ciudad);
 				}
 			}
+			vmm=vma;
 		}else{
 			for (Ruta r: origen.getAdyacentes()){
-				if (!camino.contains(r)){
+				if (!camino.get(0).getDatoCiudad().getNombreCiudad().equals(r.getDestino().getDatoCiudad().getNombreCiudad())){
 					buscar_VelocidadMax(r.getDestino(), destino, camino, mejorCamino, Math.max(vma, r.getCostos().getVelocidadMaxCiudades()),vmm);
 				}
 			}
 		}
 		camino.remove(origen);
-		System.out.println(mejorCamino);
+		System.out.println("La velocidad maxima que hay en las rutas entre "+ origen.getDatoCiudad().getNombreCiudad()+" y "+destino.getDatoCiudad().getNombreCiudad()+" es " +vmm);
 	}
 	
 	public void buscar_DistanciaMin (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino , double DistanciaMin, double DistanciaMinMejor ){

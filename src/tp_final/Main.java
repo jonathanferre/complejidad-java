@@ -23,13 +23,13 @@ public class Main {
 		LecturaARchivos inicializador = new LecturaARchivos(g);
 		//Archivos Nico
 		//windows
-		//inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
-		//inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
-		//inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+		inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
+		inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
+		inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
 		//Ubuntu
-		inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
-		inicializador.Aristas("/home/ncavallaro/Escritorio/txt/aristas.txt");
-		inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
+		//inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
+		//inicializador.Aristas("/home/ncavallaro/Escritorio/txt/aristas.txt");
+		//inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
 		
 		
 		
@@ -72,8 +72,8 @@ public class Main {
 		//Variables vac�as
 		Ciudad origen = null;
 		Ciudad destino = null;
-		ArrayList<Ciudad> camino = null;
-		ArrayList<Ciudad> mejorCamino = null;
+		ArrayList<Ciudad> camino = new ArrayList<>();
+		ArrayList<Ciudad> mejorCamino = new ArrayList<>();
 		double valor = 0.0;
 		double valormax = 0.0;
 		
