@@ -43,13 +43,13 @@ public class Main {
 		r.comenzar();
 		while(!r.fin()){
 			Ciudad elem = (Ciudad) r.elemento();
-			System.out.println(elem.getDatoCiudad().toString());
+			//System.out.println(elem.getDatoCiudad().toString());
 			
 			//obtengo la/s ruta/s de la ciudad/es
-			System.out.println(elem.getAdyacentes().toString());
+			//System.out.println(elem.getAdyacentes().toString());
 			
 			//Verificar si la ruta está yendo a la ciudad indicada
-			System.out.println(elem.getAdyacentes().get(0).getDestino().getDatoCiudad().getNombreCiudad());
+			//System.out.println(elem.getAdyacentes().get(0).getDestino().getDatoCiudad().getNombreCiudad());
 			
 			r.proximo();
 			
@@ -72,8 +72,9 @@ public class Main {
 		//Variables vac�as
 		Ciudad origen = null;
 		Ciudad destino = null;
-		ArrayList<Ciudad> camino = new ArrayList<>();
-		ArrayList<Ciudad> mejorCamino = new ArrayList<>();
+		double camino= 0.0;
+		double mejorCamino= 0.0;
+		ArrayList<Ciudad> visitado = new ArrayList<>();
 		double valor = 0.0;
 		double valormax = 0.0;
 		
@@ -126,12 +127,12 @@ public class Main {
 		
 		
 		if (consulta.equals("1")){
-			recorredorGrafo.buscar_VelocidadMax(origen, destino, camino, mejorCamino, valor  , valormax);
+			recorredorGrafo.buscar_VelocidadMax(origen, destino, camino, mejorCamino, visitado);
 		}
 		
-		if (consulta.equals("2")){
+		/*if (consulta.equals("2")){
 			recorredorGrafo.buscar_DistanciaMin(origen, destino, camino, mejorCamino, valor, valormax);
-		}
+		}*/
 		
 		if (consulta.equals("3")){
 			recorredorGrafo.buscar_VariacionAltura(origen);

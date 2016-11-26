@@ -2,9 +2,33 @@ package tp_final;
 
 import java.util.ArrayList;
 
+import com.sun.media.jfxmedia.events.VideoTrackSizeListener;
+
 public class RecorredorGrafo {
+	
+	public void buscar_VelocidadMax (Ciudad origen, Ciudad destino, double camino, double mejorCamino,ArrayList<Ciudad> visitados){
+		visitados.add(origen);
+		if (origen.equals(destino)){
+			if (camino> mejorCamino){
+				mejorCamino= camino;
+			}
+		}
+		else{
+			for (int i = 0; i < origen.getAdyacentes().size(); i++) {
+				Ruta ruta = origen.getAdyacentes().get(i);
+				if (!visitados.contains(ruta.getDestino())){
+					buscar_VelocidadMax(ruta.getDestino(), destino,Math.max(camino, ruta.getCostos().getVelocidadMaxCiudades()),mejorCamino,visitados);
+				}
+			}
+		}
+	if (mejorCamino!= 0.0){	
+		System.out.println(mejorCamino);
+	}
+	}
+	
+	
 			
-	public void buscar_VelocidadMax (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino, double vma,double vmm){
+	/*public void buscar_VelocidadMax (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino, double vma,double vmm){
 		camino.add(origen);
 		if (origen.equals(destino)){
 			if (vma > vmm){
@@ -23,7 +47,7 @@ public class RecorredorGrafo {
 		}
 		camino.remove(origen);
 		System.out.println("La velocidad maxima que hay en las rutas entre "+ origen.getDatoCiudad().getNombreCiudad()+" y "+destino.getDatoCiudad().getNombreCiudad()+" es " +vmm);
-	}
+	}*/
 	
 	public void buscar_DistanciaMin (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino , double DistanciaMin, double DistanciaMinMejor ){
 		camino.add(origen);
@@ -37,7 +61,7 @@ public class RecorredorGrafo {
 		}else{
 			for (Ruta r: origen.getAdyacentes()){
 				if (!camino.contains(r)){
-					buscar_VelocidadMax(r.getDestino(), destino, camino, mejorCamino, Math.min(DistanciaMin, r.getCostos().getDistanciaRuta()), DistanciaMinMejor);
+					buscar_DistanciaMin(r.getDestino(), destino, camino, mejorCamino, Math.min(DistanciaMin, r.getCostos().getDistanciaRuta()), DistanciaMinMejor);
 				}
 			}
 		}
