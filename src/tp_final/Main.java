@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 import clase1_Listas.ListaConArreglo;
 import clase1_Listas.Recorredor;
 
@@ -72,11 +74,16 @@ public class Main {
 		//Variables vac�as
 		Ciudad origen = null;
 		Ciudad destino = null;
+		int distancia = 0;
+		int mejorDis = 999999999;
 		double camino= 0.0;
 		double mejorCamino= 0.0;
 		ArrayList<Ciudad> visitado = new ArrayList<>();
 		double valor = 0.0;
 		double valormax = 0.0;
+		ArrayList<Ciudad> caminoList = new ArrayList<>();
+		ArrayList<Ciudad> mejorCaminoLis = new ArrayList<>();
+		
 		
 		
 		if (opcion.equals("1")){
@@ -130,9 +137,9 @@ public class Main {
 			recorredorGrafo.buscar_VelocidadMax(origen, destino, camino, mejorCamino, visitado);
 		}
 		
-		/*if (consulta.equals("2")){
-			recorredorGrafo.buscar_DistanciaMin(origen, destino, camino, mejorCamino, valor, valormax);
-		}*/
+		if (consulta.equals("2")){
+			recorredorGrafo.buscar_DistanciaMin(origen, destino,caminoList,visitado, distancia, mejorDis,mejorCaminoLis);
+		}
 		
 		if (consulta.equals("3")){
 			recorredorGrafo.buscar_VariacionAltura(origen);

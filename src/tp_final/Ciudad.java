@@ -44,7 +44,12 @@ public class Ciudad {
 	public void printVelocidadMediaCiudad(){
 		System.out.println(datoCiudad.getVelocidadMedia());
 	}
-
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getDatoCiudad().getNombreCiudad();
+	}
 
 	
 }

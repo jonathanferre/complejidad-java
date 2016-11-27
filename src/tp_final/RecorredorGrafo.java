@@ -21,53 +21,71 @@ public class RecorredorGrafo {
 				}
 			}
 		}
-	if (mejorCamino!= 0.0){	
-		System.out.println(mejorCamino);
+	if (mejorCamino!= 0.0){
+		System.out.println(Math.rint(mejorCamino*1000)/1000);
 	}
 	}
 	
-	
-			
-	/*public void buscar_VelocidadMax (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino, double vma,double vmm){
-		camino.add(origen);
+	public void buscar_DistanciaMin(Ciudad origen,Ciudad destino, ArrayList<Ciudad> caminoList, ArrayList<Ciudad> visitado, int distancia, int mejorDis, ArrayList<Ciudad> mejorCaminoLis ){
+		caminoList.add(origen);
+		visitado.add(origen);
+		distancia=distancia+origen.getDatoCiudad().getDistanciaCiudad();
 		if (origen.equals(destino)){
-			if (vma > vmm){
-				mejorCamino.clear();
-				for (Ciudad ciudad : camino) {
-					mejorCamino.add(ciudad);
-				}
-			}
-			vmm=vma;
-		}else{
-			for (Ruta r: origen.getAdyacentes()){
-				if (!camino.get(0).getDatoCiudad().getNombreCiudad().equals(r.getDestino().getDatoCiudad().getNombreCiudad())){
-					buscar_VelocidadMax(r.getDestino(), destino, camino, mejorCamino, Math.max(vma, r.getCostos().getVelocidadMaxCiudades()),vmm);
+			if (distancia<=mejorDis){
+				mejorDis=distancia;
+				for (Ciudad ciudad : caminoList) {
+					mejorCaminoLis.add(ciudad);
 				}
 			}
 		}
-		camino.remove(origen);
-		System.out.println("La velocidad maxima que hay en las rutas entre "+ origen.getDatoCiudad().getNombreCiudad()+" y "+destino.getDatoCiudad().getNombreCiudad()+" es " +vmm);
-	}*/
-	
-	public void buscar_DistanciaMin (Ciudad origen, Ciudad destino, ArrayList<Ciudad> camino, ArrayList<Ciudad> mejorCamino , double DistanciaMin, double DistanciaMinMejor ){
-		camino.add(origen);
-		if (origen.equals(destino)){
-			if (DistanciaMin < DistanciaMinMejor){
-				mejorCamino.clear();
-				for (Ciudad ciudad : camino){
-					mejorCamino.add(ciudad);
+		else{
+			for (int i = 0; i < origen.getAdyacentes().size(); i++) {
+				Ruta ruta = origen.getAdyacentes().get(i);
+				if (!visitado.contains(ruta.getDestino())){
+					distancia= distancia+ruta.getCostos().getDistanciaRuta();
+					buscar_DistanciaMin(ruta.getDestino(), destino, caminoList, visitado, distancia, mejorDis,mejorCaminoLis);
 				}
-			}
-		}else{
-			for (Ruta r: origen.getAdyacentes()){
-				if (!camino.contains(r)){
-					buscar_DistanciaMin(r.getDestino(), destino, camino, mejorCamino, Math.min(DistanciaMin, r.getCostos().getDistanciaRuta()), DistanciaMinMejor);
-				}
+				
 			}
 		}
-		 System.out.println(mejorCamino);
-	}
+		caminoList.remove(origen);
+		visitado.remove(origen);
+		distancia=distancia-origen.getDatoCiudad().getDistanciaCiudad();
+		if (mejorDis!= 999999999){
+			System.out.println( mejorCaminoLis +" esto tiene una distancia de: "+ mejorDis);
+		}
+		
+	} 
 	
+	
+	
+/*	public void buscar_DistanciaMin (Ciudad origen, Ciudad destino, int caminoDis, int mejorCaminoDis, ArrayList<Ciudad> visitados,ArrayList<Ciudad> caminoMejor){
+		visitados.add(origen);
+		if(caminoMejor.size()==0){
+			caminoMejor.add(origen);
+		}
+		if (origen.equals(destino)){
+			System.out.println(mejorCaminoDis);
+		}else{
+			ArrayList<Object> mejorDistancia = new ArrayList<>();
+			mejorDistancia.add(origen.getAdyacentes().get(0).getDestino());
+			mejorDistancia.add(origen.getDatoCiudad().getDistanciaCiudad()+ origen.getAdyacentes().get(0).getCostos().getDistanciaRuta());
+			for (Ruta ruta : origen.getAdyacentes()){
+				caminoDis= caminoDis+ origen.getDatoCiudad().getDistanciaCiudad()+ ruta.getCostos().getDistanciaRuta(); 
+				if (caminoDis<(Integer)mejorDistancia.get(1)){
+					caminoMejor.add(ruta.getDestino());
+					mejorDistancia.set(1, caminoMejor);
+					mejorDistancia.set(0, ruta.getDestino());
+					buscar_DistanciaMin(ruta.getDestino(), destino, (Integer) mejorDistancia.get(1), mejorCaminoDis, visitados, caminoMejor);
+				}else{
+					buscar_DistanciaMin((Ciudad)mejorDistancia.get(0), destino, (Integer) mejorDistancia.get(1), mejorCaminoDis, visitados, caminoMejor);
+				}
+			}
+			caminoMejor.add((Ciudad)mejorDistancia.get(0));
+			System.out.println(caminoMejor);
+		}
+	}
+	*/
 	
 	public void buscar_VariacionAltura (Ciudad origen){
   		int altura = origen.getDatoCiudad().getAltura();

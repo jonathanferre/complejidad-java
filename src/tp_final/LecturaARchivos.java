@@ -161,7 +161,7 @@ public class LecturaARchivos {
     				String[] retval = linea.split(separador);
     				for (int j=0; j< cantidad; j++){
     					costos[i][j].setPesoMaximo(Integer.parseInt(retval[j]));
-    					System.out.println(costos[i][j].getPesoMaximo()+ " Kg");
+    					//System.out.println(costos[i][j].getPesoMaximo()+ " Kg");
     				}
     				linea= b.readLine();
     			}
