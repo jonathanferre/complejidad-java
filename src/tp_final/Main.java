@@ -25,9 +25,9 @@ public class Main {
 		LecturaARchivos inicializador = new LecturaARchivos(g);
 		//Archivos Nico
 		//windows
-		inicializador.Vertices("/Users/Musimatch/Documents/vertices.txt");
-		inicializador.Aristas("/Users/Musimatch/Documents/aristas.txt");
-		inicializador.OrigenDestino("/Users/Musimatch/Documents/OrigDest.txt");
+		inicializador.Vertices("/Users/Nicocav/Documents/vertices.txt");
+		inicializador.Aristas("/Users/Nicocav/Documents/aristas.txt");
+		inicializador.OrigenDestino("/Users/Nicocav/Documents/OrigDest.txt");
 		//Ubuntu
 		//inicializador.Vertices("/home/Musimatch/Escritorio/txt/vertices.txt");
 		//inicializador.Aristas("/home/Musimatch/Escritorio/txt/aristas.txt");

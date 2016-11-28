@@ -23,7 +23,7 @@ public class RecorredorGrafo {
 			
 	//if (mejorCamino!= 0.0){
 	System.out.println("Velocidad M\u00e1xima que alcanza el veh\u00edculo es: "+Math.rint(mejorCamino*1000)/1000);
-	System.exit(1);
+	//System.exit(1);
 	//}
 	}
 	
@@ -53,9 +53,10 @@ public class RecorredorGrafo {
 		visitado.remove(origen);
 		distancia=distancia-origen.getDatoCiudad().getDistanciaCiudad();
 		
+		if (mejorDis!= 999999999){
 		System.out.println( mejorCaminoLis +" esto tiene una distancia de: "+ mejorDis + "m");
 		System.exit(1);
-		
+		}
 		
 	} 
 	
