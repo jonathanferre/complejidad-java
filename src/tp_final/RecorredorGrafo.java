@@ -17,13 +17,16 @@ public class RecorredorGrafo {
 			for (int i = 0; i < origen.getAdyacentes().size(); i++) {
 				Ruta ruta = origen.getAdyacentes().get(i);
 				if (!visitados.contains(ruta.getDestino())){
-					buscar_VelocidadMax(ruta.getDestino(), destino,Math.max(camino, ruta.getCostos().getVelocidadMaxCiudades()),mejorCamino,visitados);
+					buscar_VelocidadMax(ruta.getDestino(), destino,Math.max(camino, ruta.getCostos().getVelocidadMaxCiudades()),mejorCamino,visitados );
 				}
 			}
-		}
-	if (mejorCamino!= 0.0){
-		System.out.println(Math.rint(mejorCamino*1000)/1000);
-	}
+		}	
+		
+			
+	//if (mejorCamino!= 0.0){
+	System.out.println(Math.rint(mejorCamino*1000)/1000);
+	System.exit(1);
+	//}
 	}
 	
 	public void buscar_DistanciaMin(Ciudad origen,Ciudad destino, ArrayList<Ciudad> caminoList, ArrayList<Ciudad> visitado, int distancia, int mejorDis, ArrayList<Ciudad> mejorCaminoLis ){
@@ -51,9 +54,10 @@ public class RecorredorGrafo {
 		caminoList.remove(origen);
 		visitado.remove(origen);
 		distancia=distancia-origen.getDatoCiudad().getDistanciaCiudad();
-		if (mejorDis!= 999999999){
-			System.out.println( mejorCaminoLis +" esto tiene una distancia de: "+ mejorDis);
-		}
+		
+		System.out.println( mejorCaminoLis +" esto tiene una distancia de: "+ mejorDis + "m");
+		System.exit(1);
+		
 		
 	} 
 	

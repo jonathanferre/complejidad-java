@@ -86,6 +86,7 @@ public class Main {
 		
 		
 		
+		
 		if (opcion.equals("1")){
 			origen = (Ciudad) g.getListaDeCiudades().elemento(0);
 			destino = (Ciudad) g.getListaDeCiudades().elemento(1);
