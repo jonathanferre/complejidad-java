@@ -28,21 +28,5 @@ public class Grafo {
 		//crear una nueva ruta paśandole como parámetro Destino y Costo
 		origen.getAdyacentes().add(new Ruta(destino,costos));
 	}
-	
-	//recorrer grafos
-	/*public void bfs(Ciudad origen){
-		ArrayList<Boolean> visitado = new ArrayList<Boolean>();
-		for (int i = 0; i < this.getListaDeCiudades().size(); i++) {
-			visitado.add(false);
-		}
-		return 
-	}*/
-	
-	
-/*	private ArrayList<Ciudad> privateBfs(Ciudad origen, Ciudad visitado){
-		Queue<> cola = new Queue
-	}*/
-	
-	
 
 }

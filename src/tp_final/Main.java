@@ -25,12 +25,12 @@ public class Main {
 		LecturaARchivos inicializador = new LecturaARchivos(g);
 		//Archivos Nico
 		//windows
-		inicializador.Vertices("/Users/NicoCav/Documents/vertices.txt");
-		inicializador.Aristas("/Users/NicoCav/Documents/aristas.txt");
-		inicializador.OrigenDestino("/Users/NicoCav/Documents/OrigDest.txt");
+		inicializador.Vertices("/Users/Musimatch/Documents/vertices.txt");
+		inicializador.Aristas("/Users/Musimatch/Documents/aristas.txt");
+		inicializador.OrigenDestino("/Users/Musimatch/Documents/OrigDest.txt");
 		//Ubuntu
-		//inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
-		//inicializador.Aristas("/home/ncavallaro/Escritorio/txt/aristas.txt");
+		//inicializador.Vertices("/home/Musimatch/Escritorio/txt/vertices.txt");
+		//inicializador.Aristas("/home/Musimatch/Escritorio/txt/aristas.txt");
 		//inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
 		
 		
@@ -61,14 +61,14 @@ public class Main {
 		
 		
 		System.out.println(">>>Modulo de Consulta>>>");
-		System.out.println("Eliga una de las siguientes opciones");
+		System.out.println("Elija una de las siguientes opciones");
 		System.out.println("1- " + inicializador.listaCamino.get(0));
 		System.out.println("2- " + inicializador.listaCamino.get(1));
 		System.out.println("3- " + inicializador.listaCamino.get(2));
 		System.out.println("4- " + inicializador.listaCamino.get(3));
 		System.out.println("5- " + inicializador.listaCamino.get(4));
 		System.out.println("6- " + inicializador.listaCamino.get(5));
-		System.out.println("Su opcion es:");
+		System.out.println("Su opci\u00f3n es:");
 		String opcion = sc.nextLine();
 		
 		//Variables vac�as
@@ -124,11 +124,11 @@ public class Main {
 		
 		RecorredorGrafo recorredorGrafo = new RecorredorGrafo();
 
-		System.out.println("Eliga que desea hacer");
-		System.out.println("1-Velocidad m�xima que puede alcanzar un veh�culo entre una ciudad origen y otradestino.");
-		System.out.println("2-Ruta desde una ciudad origen y otra destino donde la distancia transitada seam�nima.");
-		System.out.println("3-Variaci�n de Alturas entre una ciudad origen y todas las ciudades vecinas.");
-		System.out.println("Su opcion es:");
+		System.out.println("Elija que desea hacer");
+		System.out.println("1-Velocidad m\u00e1xima que puede alcanzar un veh\u00edculo entre una ciudad origen y otra destino.");
+		System.out.println("2-Ruta desde una ciudad origen y otra destino donde la distancia transitada sea m\u00ednima.");
+		System.out.println("3-Variaci\u00f3n de Alturas entre una ciudad origen y todas las ciudades vecinas.");
+		System.out.println("Su opci\u00f3n es:");
 		String consulta = sc.nextLine();
 		
 		//
@@ -145,14 +145,6 @@ public class Main {
 		if (consulta.equals("3")){
 			recorredorGrafo.buscar_VariacionAltura(origen);
 		}
-		
-		
-		
-		
-	
-	
-	
-	
 	}
 }	
     	
