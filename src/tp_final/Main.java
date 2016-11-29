@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+//import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import clase1_Listas.ListaConArreglo;
 import clase1_Listas.Recorredor;
@@ -25,13 +25,13 @@ public class Main {
 		LecturaARchivos inicializador = new LecturaARchivos(g);
 		//Archivos Nico
 		//windows
-		inicializador.Vertices("/Users/Nicocav/Documents/vertices.txt");
-		inicializador.Aristas("/Users/Nicocav/Documents/aristas.txt");
-		inicializador.OrigenDestino("/Users/Nicocav/Documents/OrigDest.txt");
+		//inicializador.Vertices("/Users/Nicocav/Documents/vertices.txt");
+		//inicializador.Aristas("/Users/Nicocav/Documents/aristas.txt");
+		//inicializador.OrigenDestino("/Users/Nicocav/Documents/OrigDest.txt");
 		//Ubuntu
-		//inicializador.Vertices("/home/Musimatch/Escritorio/txt/vertices.txt");
-		//inicializador.Aristas("/home/Musimatch/Escritorio/txt/aristas.txt");
-		//inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
+		inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
+		inicializador.Aristas("/home/ncavallaro/Escritorio/txt/aristas.txt");
+		inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
 		
 		
 		
@@ -78,11 +78,11 @@ public class Main {
 		int mejorDis = 999999999;
 		double camino= 0.0;
 		double mejorCamino= 0.0;
-		ArrayList<Ciudad> visitado = new ArrayList<>();
+		ArrayList<Ciudad> visitado = new ArrayList<Ciudad>();
 		double valor = 0.0;
 		double valormax = 0.0;
-		ArrayList<Ciudad> caminoList = new ArrayList<>();
-		ArrayList<Ciudad> mejorCaminoLis = new ArrayList<>();
+		ArrayList<Ciudad> caminoList = new ArrayList<Ciudad>();
+		ArrayList<Ciudad> mejorCaminoLis = new ArrayList<Ciudad>();
 		
 		
 		

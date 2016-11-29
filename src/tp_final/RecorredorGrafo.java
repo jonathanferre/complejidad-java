@@ -21,10 +21,10 @@ public class RecorredorGrafo {
 		}	
 		
 			
-	//if (mejorCamino!= 0.0){
+	if (mejorCamino!= 0.0){
 	System.out.println("Velocidad M\u00e1xima que alcanza el veh\u00edculo es: "+Math.rint(mejorCamino*1000)/1000);
-	//System.exit(1);
-	//}
+	System.exit(1);
+		}
 	}
 	
 	public void buscar_DistanciaMin(Ciudad origen,Ciudad destino, ArrayList<Ciudad> caminoList, ArrayList<Ciudad> visitado, int distancia, int mejorDis, ArrayList<Ciudad> mejorCaminoLis ){
