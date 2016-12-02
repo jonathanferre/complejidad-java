@@ -16,29 +16,18 @@ public class Main {
 	
 		public static void main(String[] args) throws IOException {
 		
-		//crear grafo o llamar inicializar de grafo (pasar grafo por par�metro
+		
 			
 		Grafo g = new Grafo();		
 		
 		
 		//llamar al metodo que cree la matriz y conecte
 		LecturaARchivos inicializador = new LecturaARchivos(g);
-		//Archivos Nico
-		//windows
-		//inicializador.Vertices("/Users/Nicocav/Documents/vertices.txt");
-		//inicializador.Aristas("/Users/Nicocav/Documents/aristas.txt");
-		//inicializador.OrigenDestino("/Users/Nicocav/Documents/OrigDest.txt");
-		//Ubuntu
-		inicializador.Vertices("/home/ncavallaro/Escritorio/txt/vertices.txt");
-		inicializador.Aristas("/home/ncavallaro/Escritorio/txt/aristas.txt");
-		inicializador.OrigenDestino("/home/ncavallaro/Escritorio/txt/OrigDest.txt");
-		
-		
-		
-		//Archivos Joni
-		//inicializador.Vertices("/home/jferre/Documentos/vertices.txt");
-		//inicializador.Aristas("/home/jferre/Documentos/aristas.txt");
-		//inicializador.OrigenDestino("/home/jferre/Documentos/OrigDest.txt");
+
+		inicializador.Vertices("vertices.txt");
+		inicializador.Aristas("aristas.txt");
+		inicializador.OrigenDestino("OrigDest.txt");
+		inicializador.menuConsola(inicializador.listaCamino);
 		
 		//recorriendo las ciudades que tiene el grafo
 		Recorredor r = g.getListaDeCiudades().recorredor();
@@ -56,20 +45,7 @@ public class Main {
 			r.proximo();
 			
 		}
-
-		Scanner sc = new Scanner(System.in);
-		
-		
-		System.out.println(">>>Modulo de Consulta>>>");
-		System.out.println("Elija una de las siguientes opciones");
-		System.out.println("1- " + inicializador.listaCamino.get(0));
-		System.out.println("2- " + inicializador.listaCamino.get(1));
-		System.out.println("3- " + inicializador.listaCamino.get(2));
-		System.out.println("4- " + inicializador.listaCamino.get(3));
-		System.out.println("5- " + inicializador.listaCamino.get(4));
-		System.out.println("6- " + inicializador.listaCamino.get(5));
-		System.out.println("Su opci\u00f3n es:");
-		String opcion = sc.nextLine();
+	
 		
 		//Variables vac�as
 		Ciudad origen = null;
@@ -82,12 +58,11 @@ public class Main {
 		double valor = 0.0;
 		double valormax = 0.0;
 		ArrayList<Ciudad> caminoList = new ArrayList<Ciudad>();
-		ArrayList<Ciudad> mejorCaminoLis = new ArrayList<Ciudad>();
+		ArrayList<Ciudad> mejorCaminoLis = new ArrayList<Ciudad>();	
 		
 		
 		
-		
-		if (opcion.equals("1")){
+		/*if (opcion.equals("1")){
 			origen = (Ciudad) g.getListaDeCiudades().elemento(0);
 			destino = (Ciudad) g.getListaDeCiudades().elemento(1);
 		}
@@ -121,7 +96,7 @@ public class Main {
 			destino = (Ciudad) g.getListaDeCiudades().elemento(9);
 			
 		}
-		
+		*/
 		RecorredorGrafo recorredorGrafo = new RecorredorGrafo();
 
 		System.out.println("Elija que desea hacer");
@@ -131,7 +106,8 @@ public class Main {
 		System.out.println("Su opci\u00f3n es:");
 		String consulta = sc.nextLine();
 		
-		//
+		
+		
 		
 		
 		if (consulta.equals("1")){

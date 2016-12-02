@@ -19,8 +19,9 @@ public class RecorredorGrafo {
 				}
 			}
 		}	
+	
 		
-			
+	visitados.remove(origen);		
 	if (mejorCamino!= 0.0){
 	System.out.println("Velocidad M\u00e1xima que alcanza el veh\u00edculo es: "+Math.rint(mejorCamino*1000)/1000);
 	System.exit(1);

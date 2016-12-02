@@ -25,6 +25,7 @@ public class Costos {
 		this.pesoMaximo = pesoMaximo;
 	}
 	
+	//constructor
 	public Costos(int distanciaRuta, float velocidadMaxCiudades, int pesoMaximo) {
 		super();
 		this.distanciaRuta = distanciaRuta;

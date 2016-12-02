@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import clase1_Listas.ListaConArreglo;
 
 public class LecturaARchivos {
 	
@@ -108,17 +111,7 @@ public class LecturaARchivos {
 			}
 		}
         
-        
-        /* Ruta[][] rutas = new Ruta [cantidad][];
-        
-        //Matriz: i son las filas, j son las columnas 
-        //Se crea la matriz de 10 x 10
-        for(int i = 0; i<cantidad; i++){
-            rutas[i]=new Ruta[10];
-            for(int j = 0; j<cantidad; j++){
-                rutas[i][j]=new Ruta(0,(float) 0.0,0);
-            }
-        }*/
+
 
     	for(int x =0; x<2; x++){  //Con este For hacemos que saque la primer linea ya que es un comentario
     		linea = b.readLine();  
@@ -186,21 +179,68 @@ public class LecturaARchivos {
            String linea;
            while((linea = br.readLine())!=null ){  
         	   listaCamino.add(linea);
-           }
+           }          
+           
        br.close();
-   	}		
+   	}
+    	
+    	public static void menuConsola (ArrayList<String> listaCamino){
+    		String origen = null;
+    		String destino = null;
+    		
+    		Scanner sc = new Scanner(System.in);
+    		System.out.println(">>>Modulo de Consulta>>>");
+    		System.out.println("Elija una de las siguientes opciones");
+    		for (int i = 0; i < listaCamino.size(); i++) {
+    			System.out.println(i+"- " + listaCamino.get(i));
+			}
+    		System.out.println("Su opci\u00f3n es:");
+    		String  opcion = sc.nextLine();
+    		int cant= Integer.parseInt(opcion);
+    		
+    		String linea =listaCamino.get(cant);
+    		String[] origDest = linea.split(separador);
+    		for (String letras : origDest){
+    			if (origen==null){
+    				origen=letras;
+    			}else{
+    				destino= letras;
+    			}
+    		}
+    		
+    		  			
+			
+    		RecorredorGrafo recorredorGrafo = new RecorredorGrafo();
 
-		
-
-	
-	
-	//Metodo para llamar a los contructores 
-	public static void construir(String uriVertice,String uriArista, String uriOrigDest) throws FileNotFoundException, IOException{
-		Vertices(uriVertice);
-		Aristas(uriArista);
-		OrigenDestino(uriOrigDest);
-		
-	}
+    		System.out.println("Elija que desea hacer");
+    		System.out.println("1-Velocidad m\u00e1xima que puede alcanzar un veh\u00edculo entre una ciudad origen y otra destino.");
+    		System.out.println("2-Ruta desde una ciudad origen y otra destino donde la distancia transitada sea m\u00ednima.");
+    		System.out.println("3-Variaci\u00f3n de Alturas entre una ciudad origen y todas las ciudades vecinas.");
+    		System.out.println("Su opci\u00f3n es:");
+    		String consulta = sc.nextLine();
+    		
+    	
+    		
+    		if (consulta.equals("1")){
+    			recorredorGrafo.buscar_VelocidadMax(origen, destino, camino, mejorCamino, visitado);
+    		}
+    		
+    		if (consulta.equals("2")){
+    			recorredorGrafo.buscar_DistanciaMin(origen, destino,caminoList,visitado, distancia, mejorDis,mejorCaminoLis);
+    		}
+    		
+    		if (consulta.equals("3")){
+    			recorredorGrafo.buscar_VariacionAltura(origen);
+    		}
+    		
+    		
+    		
+    		
+    		
+    	}
+    	
+   
+    	
 }
 
 
