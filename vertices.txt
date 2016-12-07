@@ -1,0 +1,11 @@
+#Ciudades
+Florencio Varela,87,5000,11.11
+La Plata,188,10000,5.55
+Buenos Aires,200,20000,6.55
+Avellaneda,190,13000,4.80
+Mar del Plata,50,10000,10.55
+Azul,197,5000,3.55
+Olavarria,152,8000,3.55
+Bolivar,164,8000,7.50
+Tandil,1888,4000,9.5
+Junin,987,2000,3.20

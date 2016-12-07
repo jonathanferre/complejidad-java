@@ -1,0 +1,2 @@
+﻿tipo:Automóvil,modelo:Renault Clio 1.2,m:950,a_max0a100:14.4,b:0.35
+tipo:Camioneta,modelo:Ford Ranger 3.2,m:2100,a_max0a100:9.3,b:0.45
