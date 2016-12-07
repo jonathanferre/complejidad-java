@@ -182,63 +182,7 @@ public class LecturaARchivos {
            }          
            
        br.close();
-   	}
-    	
-    	public static void menuConsola (ArrayList<String> listaCamino){
-    		String origen = null;
-    		String destino = null;
-    		
-    		Scanner sc = new Scanner(System.in);
-    		System.out.println(">>>Modulo de Consulta>>>");
-    		System.out.println("Elija una de las siguientes opciones");
-    		for (int i = 0; i < listaCamino.size(); i++) {
-    			System.out.println(i+"- " + listaCamino.get(i));
-			}
-    		System.out.println("Su opci\u00f3n es:");
-    		String  opcion = sc.nextLine();
-    		int cant= Integer.parseInt(opcion);
-    		
-    		String linea =listaCamino.get(cant);
-    		String[] origDest = linea.split(separador);
-    		for (String letras : origDest){
-    			if (origen==null){
-    				origen=letras;
-    			}else{
-    				destino= letras;
-    			}
-    		}
-    		
-    		  			
-			
-    		RecorredorGrafo recorredorGrafo = new RecorredorGrafo();
-
-    		System.out.println("Elija que desea hacer");
-    		System.out.println("1-Velocidad m\u00e1xima que puede alcanzar un veh\u00edculo entre una ciudad origen y otra destino.");
-    		System.out.println("2-Ruta desde una ciudad origen y otra destino donde la distancia transitada sea m\u00ednima.");
-    		System.out.println("3-Variaci\u00f3n de Alturas entre una ciudad origen y todas las ciudades vecinas.");
-    		System.out.println("Su opci\u00f3n es:");
-    		String consulta = sc.nextLine();
-    		
-    	
-    		
-    		if (consulta.equals("1")){
-    			recorredorGrafo.buscar_VelocidadMax(origen, destino, camino, mejorCamino, visitado);
-    		}
-    		
-    		if (consulta.equals("2")){
-    			recorredorGrafo.buscar_DistanciaMin(origen, destino,caminoList,visitado, distancia, mejorDis,mejorCaminoLis);
-    		}
-    		
-    		if (consulta.equals("3")){
-    			recorredorGrafo.buscar_VariacionAltura(origen);
-    		}
-    		
-    		
-    		
-    		
-    		
-    	}
-    	
+   	}  	
    
     	
 }
