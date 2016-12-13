@@ -36,15 +36,11 @@ public class Main {
 		while(!r.fin()){
 			Ciudad elem = (Ciudad) r.elemento();
 			//System.out.println(elem.getDatoCiudad().toString());
-			
 			//obtengo la/s ruta/s de la ciudad/es
 			//System.out.println(elem.getAdyacentes().toString());
-			
 			//Verificar si la ruta está yendo a la ciudad indicada
 			//System.out.println(elem.getAdyacentes().get(0).getDestino().getDatoCiudad().getNombreCiudad());
-			
 			r.proximo();
-			
 		}
 	
 		

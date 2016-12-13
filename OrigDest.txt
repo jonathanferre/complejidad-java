@@ -1,4 +1,4 @@
-﻿Florencio Varela,La Plata
+Florencio Varela,La Plata
 Buenos Aires,Avellaneda
 Mar del Plata,Azul
 Olavarria,Bolivar
